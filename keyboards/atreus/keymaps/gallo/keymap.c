@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /*
     +----+----+----+----+----+              +----+----+----+----+----+
-    |    |    |    |    |    |              |    |    |    |    |    |
+    | !  | @  | #  | $  | %  |              |    |    |    |    |    |
     +----+----+----+----+----+              +----+----+----+----+----+
     |    |    |    |    |    |              |    |    |    |    |    |
     +----+----+----+----+----+              +----+----+----+----+----+
@@ -43,9 +43,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     +----+----+----+----+----+----+    +----+----+----+----+----+----+
 */
   [_RS] = GLAYOUT( /* [> RAISE <] */
-    KC_EXLM, KC_AT,   KC_MS_U,   KC_LCBR, KC_RCBR,                   KC_MS_U, KC_7,    KC_8,   KC_9, KC_ASTR ,
-    KC_HASH, KC_MS_L, KC_MS_D, KC_MS_R, KC_DLR,                    KC_MS_D, KC_3,    KC_5,   KC_6, KC_PLUS ,
-    KC_LBRC, KC_RBRC, KC_LPRN, KC_RPRN, KC_AMPR,                   KC_GRV,  KC_1,    KC_2,   KC_3, KC_BSLS ,
+    KC_EXLM, KC_AT,   KC_HASH, KC_DOLLAR, KC_PERCENT,              KC_CIRCUMFLEX, KC_7,    KC_8,   KC_9, KC_ASTR ,
+    KC_LCBR, KC_RCBR, KC_QUOT, KC_GRAVE, KC_PIPE,                  KC_BSPC, KC_3,    KC_5,   KC_6, KC_PLUS ,
+    KC_LBRC, KC_RBRC, KC_LPRN, KC_RPRN, KC_AMPR,                   KC_0,  KC_1,    KC_2,   KC_3, KC_BSLS ,
     TG(_LW), KC_INS,  KC_LGUI, KC_BSPC, KC_LSFT, KC_LCTL, KC_LALT, KC_SPC,  KC_TRNS, KC_DOT, KC_0, KC_EQL  ),
 
 /*
