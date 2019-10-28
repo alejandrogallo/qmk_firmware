@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
   [PROGRAMMING_LAYER] = GLAYOUT( /* [> RAISE <] */
     KC_EXLM, KC_AT,   KC_HASH, KC_DOLLAR, KC_PERCENT,              KC_CIRCUMFLEX, KC_7,    KC_8,   KC_9, KC_ASTR ,
-    KC_LCBR, KC_RCBR, KC_QUOT, KC_GRAVE, KC_PIPE,                  KC_BSPC, KC_3,    KC_5,   KC_6, KC_PLUS ,
+    KC_LCBR, KC_RCBR, KC_QUOT, KC_GRAVE, KC_PIPE,                  KC_BSPC, KC_4,    KC_5,   KC_6, KC_PLUS ,
     KC_LBRC, KC_RBRC, KC_LPRN, KC_RPRN, KC_AMPR,                   KC_0,  KC_1,    KC_2,   KC_3, KC_BSLS ,
     KC_ESC, KC_INS,  KC_LGUI, KC_BSPC, KC_LSFT, KC_LCTL, KC_LALT, KC_SPC,  KC_TRNS, KC_DOT, TG(MOVEMENT_LAYER), KC_EQL  ),
 

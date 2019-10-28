@@ -1,4 +1,9 @@
-MOUSEKEY_ENABLE = yes       # Mouse keys(+4700)
+MOUSEKEY_ENABLE = yes
+MOUSEKEY_DELAY = 10
+MOUSEKEY_INTERVAL = 20
+MOUSEKEY_TIME_TO_MAX = 0
+
+
 EXTRAKEY_ENABLE = yes       # Audio control and System control(+450)
 NKRO_ENABLE = no            # Nkey Rollover - if this doesn't work, see here: https://github.com/tmk/tmk_keyboard/wiki/FAQ#nkro-doesnt-work 
 TAP_DANCE_ENABLE = no
