@@ -57,9 +57,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     +----+----+----+----+----+----+    +----+----+----+----+----+----+
 */
   [MOVEMENT_LAYER] = GLAYOUT( /* [> LOWER <] */
-    KC_VOLU,  KC_HOME, KC_UP,   KC_END,  KC_PGUP,                   KC_MS_WH_UP,   KC_MS_BTN1,   KC_MS_U,        KC_MS_BTN2,   KC_DEL,
-    KC_VOLD,  KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN,                   KC_MS_WH_DOWN, KC_MS_L,      KC_MS_D,        KC_MS_R,   KC_INS,
-    KC_NO,   KC_NO, KC_NO,   KC_NO,   RESET,                     KC_MS_WH_LEFT, KC_MS_WH_RIGHT,   KC_MS_BTN3, KC_F3,   KC_F12  ,
+    KC_VOLU,  KC_HOME, KC_UP,   KC_END,  KC_PGUP,                   KC_DEL,  KC_MS_WH_UP,  KC_MS_U,  KC_MS_WH_DOWN, KC_MS_BTN1,
+    KC_VOLD,  KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN,                   KC_INS,  KC_MS_L,      KC_MS_D,  KC_MS_R,       KC_MS_BTN2,
+    KC_NO,   KC_NO, KC_NO,   KC_NO,   RESET,                        KC_NO,   KC_MS_WH_LEFT,KC_NO,    KC_MS_WH_RIGHT,KC_MS_BTN3,
     TO(BASE),   KC_NO, KC_LGUI, KC_BSPC, KC_LSFT, KC_LCTL, KC_LALT, KC_NO,  KC_NO, KC_NO, KC_NO, KC_NO ),
 
   [LAYER_LAYER] = GLAYOUT(
