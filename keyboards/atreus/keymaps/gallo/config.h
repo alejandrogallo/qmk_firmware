@@ -1,3 +1,8 @@
+#define MOUSEKEY_DELAY      10
+#define MOUSEKEY_INTERVAL   20
+#define MOUSEKEY_MAX_SPEED  4
+#define MOUSEKEY_TIME_TO_MAX  2
+
 #define GLAYOUT( \
   k00, k01, k02, k03, k04,           k05, k06, k07, k08, k09, \
   k10, k11, k12, k13, k14,           k15, k16, k17, k18, k19, \

@@ -1,7 +1,4 @@
 MOUSEKEY_ENABLE = yes
-MOUSEKEY_DELAY = 10
-MOUSEKEY_INTERVAL = 20
-MOUSEKEY_TIME_TO_MAX = 0
 
 
 EXTRAKEY_ENABLE = yes       # Audio control and System control(+450)
