@@ -1,7 +1,10 @@
+// mouse settings
 #define MOUSEKEY_DELAY      10
 #define MOUSEKEY_INTERVAL   30
-#define MOUSEKEY_MAX_SPEED  4
-#define MOUSEKEY_TIME_TO_MAX  2
+#define MOUSEKEY_MAX_SPEED  8
+#define MOUSEKEY_TIME_TO_MAX  10
+
+#define MOUSEKEY_WHEEL_MAX_SPEED  1
 
 #define GLAYOUT( \
   k00, k01, k02, k03, k04,           k05, k06, k07, k08, k09, \
