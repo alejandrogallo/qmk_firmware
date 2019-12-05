@@ -10,3 +10,8 @@ MCU = atmega32u4
 #   ATmega32A    bootloadHID
 #   ATmega328P   USBasp
 BOOTLOADER = caterina
+
+# for leds
+RBGLIGHT_ENABLE = yes
+RBG_DI_PIN = F4
+RGBLED_NUM = 16
