@@ -10,3 +10,4 @@ MCU = atmega32u4
 #   ATmega32A    bootloadHID
 #   ATmega328P   USBasp
 BOOTLOADER = caterina
+RGBLIGHT_ENABLE = no        # Enable WS2813 RGB underlight.

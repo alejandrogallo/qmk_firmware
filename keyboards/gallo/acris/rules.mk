@@ -12,6 +12,4 @@ MCU = atmega32u4
 BOOTLOADER = caterina
 
 # for leds
-RBGLIGHT_ENABLE = yes
-RBG_DI_PIN = F4
-RGBLED_NUM = 16
+RGBLIGHT_ENABLE = yes
