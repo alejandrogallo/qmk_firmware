@@ -1,7 +1,7 @@
 // mouse settings
 #define MOUSEKEY_DELAY      10
 #define MOUSEKEY_INTERVAL   30
-#define MOUSEKEY_MAX_SPEED  8
+#define MOUSEKEY_MAX_SPEED  4
 #define MOUSEKEY_TIME_TO_MAX  10
 
 #define MOUSEKEY_WHEEL_MAX_SPEED  1
