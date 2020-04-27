@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO , KC_MS_WH_LEFT , KC_NO , KC_MS_WH_RIGHT , KC_MS_BTN3 ,
     // fourth row
     TO(BASE) , KC_NO        , KC_LGUI      , KC_BSPC      , KC_LSFT , KC_LCTL ,
-    KC_LALT  , KC_MS_ACCEL0 , KC_MS_ACCEL1 , KC_MS_ACCEL2 , KC_NO   , KC_NO ) ,
+    KC_LALT  , KC_MS_ACCEL0 , KC_MS_ACCEL1 , KC_MS_ACCEL2 , KC_NO   , KC_ENT ) ,
 
   [LAYER_LAYER] = GLAYOUT(
     // first row
