@@ -6,20 +6,36 @@
 #ifdef SSD1306OLED
   #include "ssd1306.h"
 #endif
+#include "pointing_device.h"
+#include "joystick.h"
 
 extern keymap_config_t keymap_config;
-
+extern uint8_t is_master;
 #ifdef RGBLIGHT_ENABLE
 //Following line allows macro to read current RGB settings
 extern rgblight_config_t rgblight_config;
 #endif
 
-extern uint8_t is_master;
+/*
+#define JOYSTICK_AXIS_IN(INPUT_PIN, LOW, REST, HIGH)
+{ JS_VIRTUAL_AXIS, INPUT_PIN, JS_VIRTUAL_AXIS, LOW, REST, HIGH }
+*/
+    //[0] = JOYSTICK_AXIS_IN_OUT_GROUND(A4, B0, A7, 900, 575, 285),
+joystick_config_t joystick_axes[JOYSTICK_AXES_COUNT] = {
+    [0] = JOYSTICK_AXIS_IN(B4, 0, 512, 1023), // 10 bit adc
+    [1] = JOYSTICK_AXIS_IN(B5, 0, 505, 1023), // 10 bit adc
+};
 
-// Each layer gets a name for readability, which is then used in the keymap matrix below.
-// The underscores don't mean anything - you can have a layer called STUFF or any other name.
-// Layer names don't all need to be of the same length, obviously, and you can also skip them
-// entirely and just use numbers.
+void pointing_device_task(void) {
+  if (!is_master) return;
+  report_mouse_t currentReport;
+  currentReport = pointing_device_get_report();
+  currentReport.x = -(int8_t)((joystick_status.axes[1] >> 4) & 0x00ff);
+  currentReport.y = (int8_t)((joystick_status.axes[0] >> 4) & 0x00ff);
+  pointing_device_set_report(currentReport);
+  pointing_device_send();
+}
+
 #define _BASE 0
 #define _SYMBS 1
 #define _MVMNT 2
@@ -39,7 +55,7 @@ enum macro_keycodes {
 };
 
 #define KC______ KC_TRNS
-#define KC_XXXXX KC_NO
+#define KC_XXX KC_NO
 #define KC_BASE BASE
 #define KC_SYMBS SYMBS
 #define KC_MVMNT MVMNT
@@ -53,6 +69,17 @@ enum macro_keycodes {
 #define KC_LVAI  RGB_VAI
 #define KC_LVAD  RGB_VAD
 #define KC_LMOD  RGB_MOD
+// mouse wheel
+#define KC_WHU  KC_MS_WH_UP
+#define KC_WHD  KC_MS_WH_DOWN
+#define KC_WHR  KC_MS_WH_RIGHT
+#define KC_WHL  KC_MS_WH_LEFT
+// Mouse keys
+#define KC_MLCK KC_MS_BTN1
+#define KC_MRCK KC_MS_BTN2
+#define KC_MCCK KC_MS_BTN3
+
+
 #define KC_GUIEI GUI_T(KC_LANG2)
 #define KC_ALTKN ALT_T(KC_LANG1)
 #define KC_TO_MOVEMENT TO(_MVMNT)
@@ -61,53 +88,48 @@ enum macro_keycodes {
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_BASE] = LAYOUT_kc(
-  //,-----------------------------------------.                ,-----------------------------------------.
-        ESC,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSPC,
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-        TAB,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      TO_MOVEMENT,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,   ENT,
-  //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  LGUI,  LSFT,  LCTL,     LALT,   SPC, SYMBS
-                              //`--------------------'  `--------------------'
-  ),
+[_BASE] = LAYOUT_kc(
+//,-----------------------------------------.                ,-----------------------------------------.
+      ESC,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSPC,
+//|------+------+------+------+------+------|                |------+------+------+------+------+------|
+      TAB,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,
+//|------+------+------+------+------+------|                |------+------+------+------+------+------|
+    TO_MOVEMENT,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,   ENT,
+//|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
+                                LGUI,  LSFT,  LCTL,     LALT,   SPC, SYMBS
+                            //`--------------------'  `--------------------'
+),
 
-  [_SYMBS] = LAYOUT_kc(
-  //,-----------------------------------------.                ,-----------------------------------------.
-        ESC,  EXLM,    AT,  HASH,DOLLAR,PERCENT,            CIRCUMFLEX,     7,     8,     9,   ASTR,  MINS,
-  //|------+------+------+------+------+------|                |------+------+------+------+-------+------|
-       LCTL,  LCBR,  RCBR,  QUOT, GRAVE,  PIPE,                   BSPC,     4,     5,     6,   PLUS,  PLUS,
-  //|------+------+------+------+------+------|                |------+------+------+------+-------+------|
-       LSFT,  LBRC,  RBRC,  LPRN,  RPRN,  AMPR,                      0,     1,     2,     3,   BSLS,   EQL,
-  //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                 LGUI,  LSFT,  LCTL,     LALT,   SPC, SYMBS
-                              //`--------------------'  `--------------------'
-  ),
+[_SYMBS] = LAYOUT_kc(
+//,-----------------------------------------.                ,-----------------------------------------.
+      ESC,  EXLM,    AT,  HASH,DOLLAR,PERCENT,            CIRCUMFLEX,     7,     8,     9,   ASTR,  MINS,
+//|------+------+------+------+------+------|                |------+------+------+------+-------+------|
+     LCTL,  LCBR,  RCBR,  QUOT, GRAVE,  PIPE,                   BSPC,     4,     5,     6,   PLUS,  PLUS,
+//|------+------+------+------+------+------|                |------+------+------+------+-------+------|
+     LSFT,  LBRC,  RBRC,  LPRN,  RPRN,  AMPR,                      0,     1,     2,     3,   BSLS,   EQL,
+//|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
+                               LGUI,  LSFT,  LCTL,     LALT,   SPC, SYMBS
+                            //`--------------------'  `--------------------'
+),
 
-  [_MVMNT] = LAYOUT_kc(
-  //,-----------------------------------------.                ,-----------------------------------------.
-      TO_BASE,  VOLU,  HOME,    UP,   END,  PGUP,                    DEL, MS_WH_UP, MS_U, MS_WH_DOWN, MS_BTN1, XXXXX,
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      XXXXX,  VOLD,  LEFT,  DOWN,  RGHT,  PGDN,                    INS,  MS_L,  MS_D,  MS_R, MS_BTN2, XXXXX,
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      TO_BASE, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,               XXXXX, MS_WH_LEFT, XXXXX, MS_WH_RIGHT, MS_BTN3, XXXXX,
-  //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                 ESC,  LSFT,  LCTL,     LALT,   SPC, SYMBS
-                              //`--------------------'  `--------------------'
-  ),
+[_MVMNT] = LAYOUT_kc(
+TO_BASE, VOLU, HOME, UP  , END , PGUP, /*|*/ DEL, MLCK, MCCK, MRCK, WHU, BSPC,
+  XXX  , VOLD, LEFT, DOWN, RGHT, PGDN, /*|*/ MS_L, MS_D , MS_U, MS_R, WHD, XXX ,
+TO_BASE, F1  , F2  , F3  , F4  , F5  , /*|*/ XXX, MS_L, MS_D, MS_R, XXX, ENT ,
+                      ESC, LSFT, LCTL, /*|*/      LALT,  SPC, SYMBS
+),
 
-  [_ADJUST] = LAYOUT_kc(
-  //,-----------------------------------------.                ,-----------------------------------------.
-        RST,  LRST, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LTOG,  LHUI,  LSAI,  LVAI, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LMOD,  LHUD,  LSAD,  LVAD, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,
-  //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                 ESC, SYMBS,   SPC,      ENT, MVMNT, ALTKN
-                              //`--------------------'  `--------------------'
-  )
+[_ADJUST] = LAYOUT_kc(
+//,-----------------------------------------.                ,-----------------------------------------.
+      RST,  LRST, XXX, XXX, XXX, XXX,                  XXX, XXX, XXX, XXX, XXX, XXX,
+//|------+------+------+------+------+------|                |------+------+------+------+------+------|
+     LTOG,  LHUI,  LSAI,  LVAI, XXX, XXX,                  XXX, XXX, XXX, XXX, XXX, XXX,
+//|------+------+------+------+------+------|                |------+------+------+------+------+------|
+     LMOD,  LHUD,  LSAD,  LVAD, XXX, XXX,                  XXX, XXX, XXX, XXX, XXX, XXX,
+//|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
+                               ESC, SYMBS,   SPC,      ENT, MVMNT, ALTKN
+                            //`--------------------'  `--------------------'
+)
 };
 
 int RGB_current_mode;
@@ -136,6 +158,7 @@ void matrix_init_user(void) {
     #endif
 }
 
+
 //SSD1306 OLED update loop, make sure to add #define SSD1306OLED in config.h
 #ifdef SSD1306OLED
 
@@ -146,6 +169,10 @@ void set_keylog(uint16_t keycode, keyrecord_t *record);
 const char *read_keylog(void);
 const char *read_keylogs(void);
 
+void           pointing_device_send(void);
+report_mouse_t pointing_device_get_report(void);
+void           pointing_device_set_report(report_mouse_t);
+
 // const char *read_mode_icon(bool swap);
 // const char *read_host_led_state(void);
 // void set_timelog(void);
@@ -154,6 +181,7 @@ const char *read_keylogs(void);
 void matrix_scan_user(void) {
    iota_gfx_task();
 }
+
 
 void matrix_render_user(struct CharacterMatrix *matrix) {
   if (is_master) {
@@ -191,6 +219,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #endif
     // set_timelog();
   }
+
+  //set_keylog(joystick_status.axes[0], record);
 
   switch (keycode) {
     case BASE:
