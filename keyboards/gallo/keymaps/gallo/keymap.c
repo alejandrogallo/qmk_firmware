@@ -10,110 +10,79 @@
 #define LAYER_LAYER 3
 #define RGB_LAYER 4
 
+
+#define KC_RST RESET
+#define KC___  KC_NO
+#define XX     KC_NO
+/* mouse */
+#define KC_WHL KC_MS_WH_LEFT
+#define KC_WHD KC_MS_WH_DOWN
+#define KC_WHU KC_MS_WH_UP
+#define KC_WHR KC_MS_WH_RIGHT
+  /* Acceleration */
+#define KC_AC0 KC_MS_ACCEL0
+#define KC_AC1 KC_MS_ACCEL1
+#define KC_AC2 KC_MS_ACCEL2
+/* buttons */
+#define KC_MB1 KC_MS_BTN1
+#define KC_MB2 KC_MS_BTN2
+#define KC_MB3 KC_MS_BTN3
+
+/* goto layers shortcuts */
+#define KC_TO_BASE TO(BASE)
+#define KC_TO_LYR TO(LAYER_LAYER)
+#define KC_MO_PRG MO(PROG_LAYER)
+#define KC_TO_MVM TO(MOVEMENT_LAYER)
+#define KC_TO_RGB TO(RGB_LAYER)
+
+#define KC_WWWB KC_WWW_BACK
+#define KC_WWWF KC_WWW_FORWARD
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-/*
-    +----+----+----+----+----+              +----+----+----+----+----+
-    |    |    |    |    |    |              |    |    |    |    |    |
-    +----+----+----+----+----+              +----+----+----+----+----+
-    |    |    |    |    |    |              |    |    |    |    |    |
-    +----+----+----+----+----+              +----+----+----+----+----+
-    |    |    |    |    |    +----+    +----+    |    |    |    |    |
-    +----+----+----+----+----+    |    |    +----+----+----+----+----+
-    |    |    |    |    |    |    |    |    |    |    | '  |    |    |
-    +----+----+----+----+----+----+    +----+----+----+----+----+----+
-*/
-  [BASE] = GLAYOUT( /* Qwerty */
-    // first row
-    KC_Q , KC_W , KC_E , KC_R , KC_T ,
-    KC_Y , KC_U , KC_I , KC_O , KC_P ,
-    // second row
-    KC_A , KC_S , KC_D , KC_F , KC_G    ,
-    KC_H , KC_J , KC_K , KC_L , KC_SCLN ,
-    // third row
-    KC_Z , KC_X , KC_C    , KC_V   , KC_B    ,
-    KC_N , KC_M , KC_COMM , KC_DOT , KC_SLSH ,
-    // fourth row
-    KC_ESC  , KC_TAB , TO(LAYER_LAYER) , KC_BSPC , KC_LSFT , KC_LCTL ,
-    KC_LALT , KC_SPC , MO(PROG_LAYER)  , KC_MINS , KC_QUOT , KC_ENT
-  ),
+/* == BASE LAYER =========================================================== */
+[BASE] = GLAYOUT_kc(
 
-/*
-    +----+----+----+----+----+              +----+----+----+----+----+
-    | !  | @  | #  | $  | %  |              |    | 7  | 8  | 9  |    |
-    +----+----+----+----+----+              +----+----+----+----+----+
-    | {  | }  | '  | `  | |  |              |    | 4  | 5  | 6  |    |
-    +----+----+----+----+----+              +----+----+----+----+----+
-    | [  | ]  | (  | )  | &  +----+    +----+ 0  | 1  | 2  | 3  |    |
-    +----+----+----+----+----+    |    |    +----+----+----+----+----+
-    |    |    |    |    |    |    |    |    |    |    | .  | r  |    |
-    +----+----+----+----+----+----+    +----+----+----+----+----+----+
-*/
-  [PROG_LAYER] = GLAYOUT(
-    // first row
-    KC_EXLM       , KC_AT , KC_HASH , KC_DOLLAR , KC_PERCENT ,
-    KC_CIRCUMFLEX , KC_7  , KC_8    , KC_9      , KC_ASTR    ,
-    // second row
-    KC_LCBR , KC_RCBR , KC_QUOT , KC_GRAVE , KC_PIPE ,
-    KC_BSPC , KC_4    , KC_5    , KC_6     , KC_PLUS ,
-    // third row
-    KC_LBRC , KC_RBRC , KC_LPRN , KC_RPRN , KC_AMPR ,
-    KC_0    , KC_1    , KC_2    , KC_3    , KC_BSLS ,
-    // fourth row
-    KC_ESC  , KC_INS , KC_LGUI , KC_BSPC , KC_LSFT , KC_LCTL   ,
-    KC_LALT , KC_SPC , KC_TRNS , KC_0    , KC_DOT  , KC_EQL  ) ,
+Q  , W  , E     , R   , T   ,       /*|*/       Y  , U     , I   , O   , P   ,
+A  , S  , D     , F   , G   ,       /*|*/       H  , J     , K   , L   , SCLN,
+Z  , X  , C     , V   , B   ,       /*|*/       N  , M     , COMM, DOT , SLSH,
+ESC, TAB, TO_LYR, BSPC, LSFT, LCTL, /*|*/ LALT, SPC, MO_PRG, MINS, QUOT, ENT
 
-/*
-    +----+----+----+----+----+              +----+----+----+----+----+
-    |    |    |    |    |    |              |    |    |    |    |    |
-    +----+----+----+----+----+              +----+----+----+----+----+
-    |    |    |    |    |    |              |    |    |    |    |    |
-    +----+----+----+----+----+              +----+----+----+----+----+
-    |    |    |    |    |    +----+    +----+    |    |    |    |    |
-    +----+----+----+----+----+    |    |    +----+----+----+----+----+
-    |    |    |    |    |    |    |    |    |    |    | '  |    |    |
-    +----+----+----+----+----+----+    +----+----+----+----+----+----+
-*/
-  [MOVEMENT_LAYER] = GLAYOUT(
-    // first row
-    KC_VOLU , KC_HOME     , KC_UP   , KC_END        , KC_PGUP    ,
-    KC_DEL  , KC_MS_WH_UP , KC_MS_U , KC_MS_WH_DOWN , KC_MS_BTN1 ,
-    // second row
-    KC_VOLD , KC_LEFT , KC_DOWN , KC_RGHT , KC_PGDN    ,
-    KC_INS  , KC_MS_L , KC_MS_D , KC_MS_R , KC_MS_BTN2 ,
-    // third row
-    KC_NO , KC_NO         , KC_NO , KC_NO          , RESET      ,
-    KC_NO , KC_MS_WH_LEFT , KC_NO , KC_MS_WH_RIGHT , KC_MS_BTN3 ,
-    // fourth row
-    TO(BASE) , KC_NO        , KC_LGUI      , KC_BSPC      , KC_LSFT , KC_LCTL ,
-    KC_LALT  , KC_MS_ACCEL0 , KC_MS_ACCEL1 , KC_MS_ACCEL2 , KC_NO   , KC_ENT ) ,
+),
 
-  [LAYER_LAYER] = GLAYOUT(
-    // first row
-    KC_NO , KC_NO , KC_NO , TO(RGB_LAYER) , KC_NO ,
-    KC_NO , KC_NO , KC_NO , KC_NO         , KC_NO ,
-    // second row
-    KC_NO , KC_NO , KC_NO , KC_NO , KC_NO ,
-    KC_NO , KC_NO , KC_NO , KC_NO , KC_NO ,
-    // third row
-    KC_NO , KC_NO , KC_NO , KC_NO , KC_NO ,
-    KC_NO , KC_NO , KC_NO , KC_NO , KC_NO ,
-    // fourth row
-    TO(BASE) , KC_NO , TO(MOVEMENT_LAYER) , KC_NO , KC_LSFT , KC_LCTL ,
-    KC_LALT  , KC_NO , KC_NO              , KC_NO , KC_NO   , KC_NO ) ,
+/* == PROG LAYER =========================================================== */
+[PROG_LAYER] = GLAYOUT_kc(
 
-  [RGB_LAYER] = GLAYOUT(
-    // first row
-    RGB_TOG , RGB_M_SW , KC_NO , RGB_M_R , KC_NO ,
-    KC_NO   , KC_NO    , KC_NO , KC_NO   , RGB_M_B ,
-    // second row
-    RGB_MODE_FORWARD , RGB_SAI , KC_NO   , KC_NO , RGB_M_G ,
-    RGB_HUI          , KC_NO   , RGB_M_K , KC_NO , KC_NO   ,
-    // third row
-    KC_NO    , RGB_M_X , KC_NO , RGB_VAI , RGB_M_B ,
-    RGB_M_SN , KC_NO   , KC_NO , KC_NO   , KC_NO   ,
-    // fourth row
-    TO(BASE) , KC_NO , KC_NO , KC_NO , KC_LSFT , KC_LCTL ,
-    KC_LALT  , KC_NO , KC_NO , KC_NO , KC_NO   , KC_NO ) ,
+EXLM, AT  , HASH, DOLLAR, PERCENT,       /*|*/       CIRC, 7   , 8 , 9  , ASTR,
+LCBR, RCBR, QUOT, GRAVE , PIPE   ,       /*|*/       BSPC, 4   , 5 , 6  , PLUS,
+LBRC, RBRC, LPRN, RPRN  , AMPR   ,       /*|*/       0   , 1   , 2 , 3  , BSLS,
+ESC , INS , LGUI, BSPC  , LSFT   , LCTL, /*|*/ LALT, SPC , TRNS, __, DOT, EQL
+
+) ,
+
+/* == MOVEMENT LAYER ======================================================= */
+[MOVEMENT_LAYER] = GLAYOUT_kc(
+
+HOME   , WWWB, PGDN, PGUP, WWWF,       /*|*/       __  , MB1 , MB3 , MB2 , DEL,
+END    , LEFT, DOWN, UP  , RGHT,       /*|*/       MS_L, MS_D, MS_U, MS_R, INS,
+F1     , F2  , F3  , F4  , F5  ,       /*|*/       WHL , WHD , WHU , WHR , CLR,
+TO_BASE, __  , LGUI, BSPC, LSFT, LCTL, /*|*/ LALT, AC0 , AC1 , AC2 , __  , ENT
+
+),
+
+/* == LAYER  LAYER ========================================================= */
+[LAYER_LAYER] = GLAYOUT_kc(
+__     , __, __    , TO_RGB, __  ,       /*|*/       __, __, __, __, __,
+__     , __, __    , __    , __  ,       /*|*/       __, __, __, __, __,
+__     , __, __    , __    , RST ,       /*|*/       __, __, __, __, __,
+TO_BASE, __, TO_MVM, __    , LSFT, LCTL, /*|*/ LALT, __, __, __, __, __
+) ,
+
+[RGB_LAYER] = GLAYOUT(
+RGB_TOG         , RGB_M_SW, XX, RGB_M_R, XX     ,          /*|*/          XX      , XX, XX     , XX, RGB_M_B,
+RGB_MODE_FORWARD, RGB_SAI , XX, XX     , RGB_M_G,          /*|*/          RGB_HUI , XX, RGB_M_K, XX, XX,
+XX              , RGB_M_X , XX, RGB_VAI, RGB_M_B,          /*|*/          RGB_M_SN, XX, XX     , XX, XX,
+TO(BASE)        , XX      , XX, XX     , KC_LSFT, KC_LCTL, /*|*/ KC_LALT, XX      , XX, XX     , XX, XX
+),
 
 
 };
