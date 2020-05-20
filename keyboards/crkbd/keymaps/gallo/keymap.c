@@ -22,10 +22,9 @@ extern rgblight_config_t rgblight_config;
 */
     //[0] = JOYSTICK_AXIS_IN_OUT_GROUND(A4, B0, A7, 900, 575, 285),
 joystick_config_t joystick_axes[JOYSTICK_AXES_COUNT] = {
-    [0] = JOYSTICK_AXIS_IN(B4, 0, 512, 1023), // 10 bit adc
-    [1] = JOYSTICK_AXIS_IN(B5, 0, 505, 1023), // 10 bit adc
+    [0] = JOYSTICK_AXIS_IN(B4, 0, 511, 1023), // 10 bit adc
+    [1] = JOYSTICK_AXIS_IN(B5, 0, 504, 1023), // 10 bit adc
 };
-
 void pointing_device_task(void) {
   if (!is_master) return;
   report_mouse_t currentReport;
@@ -59,6 +58,7 @@ enum macro_keycodes {
 #define KC_BASE BASE
 #define KC_SYMBS SYMBS
 #define KC_MVMNT MVMNT
+#define KC_MVMNT MVMNT
 #define KC_RST   RESET
 #define KC_LRST  RGBRST
 #define KC_LTOG  RGB_TOG
@@ -84,6 +84,8 @@ enum macro_keycodes {
 #define KC_ALTKN ALT_T(KC_LANG1)
 #define KC_TO_MOVEMENT TO(_MVMNT)
 #define KC_TO_BASE TO(_BASE)
+#define KC_TO_ADJT TO(_ADJUST)
+
 
 
 
@@ -114,14 +116,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_MVMNT] = LAYOUT_kc(
 TO_BASE, VOLU, HOME, UP  , END , PGUP, /*|*/ DEL, MLCK, MCCK, MRCK, WHU, BSPC,
-  XXX  , VOLD, LEFT, DOWN, RGHT, PGDN, /*|*/ MS_L, MS_D , MS_U, MS_R, WHD, XXX ,
+TO_ADJT, VOLD, LEFT, DOWN, RGHT, PGDN, /*|*/ MS_L, MS_D , MS_U, MS_R, WHD, XXX ,
 TO_BASE, F1  , F2  , F3  , F4  , F5  , /*|*/ XXX, MS_L, MS_D, MS_R, XXX, ENT ,
                       ESC, LSFT, LCTL, /*|*/      LALT,  SPC, SYMBS
 ),
 
 [_ADJUST] = LAYOUT_kc(
 //,-----------------------------------------.                ,-----------------------------------------.
-      RST,  LRST, XXX, XXX, XXX, XXX,                  XXX, XXX, XXX, XXX, XXX, XXX,
+      TO_BASE,  LRST, XXX, XXX, XXX, XXX,                  XXX, XXX, XXX, XXX, XXX, XXX,
 //|------+------+------+------+------+------|                |------+------+------+------+------+------|
      LTOG,  LHUI,  LSAI,  LVAI, XXX, XXX,                  XXX, XXX, XXX, XXX, XXX, XXX,
 //|------+------+------+------+------+------|                |------+------+------+------+------+------|
