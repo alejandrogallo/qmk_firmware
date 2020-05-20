@@ -13,3 +13,5 @@ BOOTLOADER = caterina
 
 # for leds
 RGBLIGHT_ENABLE = yes
+JOYSTICK_ENABLE = yes
+POINTING_DEVICE_ENABLE = yes

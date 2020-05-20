@@ -39,3 +39,14 @@
 #define PRODUCT         acris keyboard
 #undef DESCRIPTION
 #define DESCRIPTION     acris keyboard blahblahblah
+
+/*
+ * RGB CONFIGURATION
+ */
+#define RGBLIGHT_ANIMATIONS
+
+/*
+ * JOYSTICK CONFIGURATION
+ */
+#define JOYSTICK_BUTTON_COUNT 0
+#define JOYSTICK_AXES_COUNT 2
