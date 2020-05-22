@@ -62,7 +62,7 @@ ESC , INS , LGUI, BSPC  , LSFT   , LCTL, /*|*/ LALT, SPC , TRNS, __, DOT, EQL
 /* == MOVEMENT LAYER ======================================================= */
 [MOVEMENT_LAYER] = GLAYOUT_kc(
 
-HOME   , WWWB, PGDN, PGUP, WWWF,       /*|*/       __  , MB1 , MB3 , MB2 , DEL,
+HOME   , MB2 , PGDN, PGUP, MB1 ,       /*|*/       __  , MB1 , MB3 , MB2 , DEL,
 END    , LEFT, DOWN, UP  , RGHT,       /*|*/       MS_L, MS_D, MS_U, MS_R, INS,
 F1     , F2  , F3  , F4  , F5  ,       /*|*/       WHL , WHD , WHU , WHR , CLR,
 TO_BASE, __  , LGUI, BSPC, LSFT, LCTL, /*|*/ LALT, AC0 , AC1 , AC2 , __  , ENT
