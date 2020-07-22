@@ -7,7 +7,9 @@
   #include "ssd1306.h"
 #endif
 #include "pointing_device.h"
+#ifdef GALLO_JOYSTICK
 #include "joystick.h"
+#endif
 
 extern keymap_config_t keymap_config;
 extern uint8_t is_master;
@@ -16,11 +18,7 @@ extern uint8_t is_master;
 extern rgblight_config_t rgblight_config;
 #endif
 
-/*
-#define JOYSTICK_AXIS_IN(INPUT_PIN, LOW, REST, HIGH)
-{ JS_VIRTUAL_AXIS, INPUT_PIN, JS_VIRTUAL_AXIS, LOW, REST, HIGH }
-*/
-    //[0] = JOYSTICK_AXIS_IN_OUT_GROUND(A4, B0, A7, 900, 575, 285),
+#ifdef GALLO_JOYSTICK
 joystick_config_t joystick_axes[JOYSTICK_AXES_COUNT] = {
     [0] = JOYSTICK_AXIS_IN(B4, 0, 511, 1023), // 10 bit adc
     [1] = JOYSTICK_AXIS_IN(B5, 0, 504, 1023), // 10 bit adc
@@ -34,11 +32,13 @@ void pointing_device_task(void) {
   pointing_device_set_report(currentReport);
   pointing_device_send();
 }
+#endif
 
 #define _BASE 0
 #define _SYMBS 1
 #define _MVMNT 2
 #define _ADJUST 3
+#define LAYER_LAYER 4
 
 enum custom_keycodes {
   BASE = SAFE_RANGE,
@@ -54,7 +54,7 @@ enum macro_keycodes {
 };
 
 #define KC______ KC_TRNS
-#define KC_XXX KC_NO
+#define KC___  KC_NO
 #define KC_BASE BASE
 #define KC_SYMBS SYMBS
 #define KC_MVMNT MVMNT
@@ -85,53 +85,47 @@ enum macro_keycodes {
 #define KC_TO_MOVEMENT TO(_MVMNT)
 #define KC_TO_BASE TO(_BASE)
 #define KC_TO_ADJT TO(_ADJUST)
+#define KC_TO_LYR TO(LAYER_LAYER)
 
 
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT_kc(
-//,-----------------------------------------.                ,-----------------------------------------.
-      ESC,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSPC,
-//|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      TAB,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,
-//|------+------+------+------+------+------|                |------+------+------+------+------+------|
-    TO_MOVEMENT,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,   ENT,
-//|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                LGUI,  LSFT,  LCTL,     LALT,   SPC, SYMBS
-                            //`--------------------'  `--------------------'
+ ESC,         Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P, BSPC,
+ TAB,         A, S, D, F, G, /*|*/ H, J,    K,   L, SCLN, QUOT,
+ TO_LYR, Z, X, C, V, B, /*|*/ N, M, COMM, DOT, SLSH,  ENT,
+           LGUI, LSFT, LCTL, /*|*/ LALT, SPC, SYMBS
 ),
 
 [_SYMBS] = LAYOUT_kc(
-//,-----------------------------------------.                ,-----------------------------------------.
-      ESC,  EXLM,    AT,  HASH,DOLLAR,PERCENT,            CIRCUMFLEX,     7,     8,     9,   ASTR,  MINS,
-//|------+------+------+------+------+------|                |------+------+------+------+-------+------|
-     LCTL,  LCBR,  RCBR,  QUOT, GRAVE,  PIPE,                   BSPC,     4,     5,     6,   PLUS,  PLUS,
-//|------+------+------+------+------+------|                |------+------+------+------+-------+------|
-     LSFT,  LBRC,  RBRC,  LPRN,  RPRN,  AMPR,                      0,     1,     2,     3,   BSLS,   EQL,
-//|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                               LGUI,  LSFT,  LCTL,     LALT,   SPC, SYMBS
-                            //`--------------------'  `--------------------'
+ESC , EXLM, AT  , HASH, DOLLAR, PERCENT, /*|*/ CIRCUMFLEX, 7, 8, 9, ASTR, MINS,
+LCTL, LCBR, RCBR, QUOT, GRAVE , PIPE   , /*|*/ BSPC      , 4, 5, 6, PLUS, PLUS,
+LSFT, LBRC, RBRC, LPRN, RPRN  , AMPR   , /*|*/ 0         , 1, 2, 3, BSLS, EQL ,
+                       LGUI, LSFT, LCTL, /*|*/ LALT, SPC, SYMBS
 ),
 
 [_MVMNT] = LAYOUT_kc(
 TO_BASE, VOLU, HOME, UP  , END , PGUP, /*|*/ DEL, MLCK, MCCK, MRCK, WHU, BSPC,
-TO_ADJT, VOLD, LEFT, DOWN, RGHT, PGDN, /*|*/ MS_L, MS_D , MS_U, MS_R, WHD, XXX ,
-TO_BASE, F1  , F2  , F3  , F4  , F5  , /*|*/ XXX, MS_L, MS_D, MS_R, XXX, ENT ,
-                      ESC, LSFT, LCTL, /*|*/      LALT,  SPC, SYMBS
+TO_ADJT, VOLD, LEFT, DOWN, RGHT, PGDN, /*|*/ MS_L, MS_D , MS_U, MS_R, WHD, __ ,
+TO_BASE, F1  , F2  , F3  , F4  , F5  , /*|*/ __, MS_L, MS_D, MS_R, __, ENT ,
+                      ESC, LSFT, LCTL, /*|*/ LALT,  SPC, SYMBS
 ),
 
 [_ADJUST] = LAYOUT_kc(
-//,-----------------------------------------.                ,-----------------------------------------.
-      TO_BASE,  LRST, XXX, XXX, XXX, XXX,                  XXX, XXX, XXX, XXX, XXX, XXX,
-//|------+------+------+------+------+------|                |------+------+------+------+------+------|
-     LTOG,  LHUI,  LSAI,  LVAI, XXX, XXX,                  XXX, XXX, XXX, XXX, XXX, XXX,
-//|------+------+------+------+------+------|                |------+------+------+------+------+------|
-     LMOD,  LHUD,  LSAD,  LVAD, XXX, XXX,                  XXX, XXX, XXX, XXX, XXX, XXX,
-//|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                               ESC, SYMBS,   SPC,      ENT, MVMNT, ALTKN
-                            //`--------------------'  `--------------------'
-)
+TO_BASE, LRST,  __ ,   __ , __, __,   /*|*/ __, __, __, __, __, __,
+LTOG   , LHUI, LSAI,  LVAI, __, __,   /*|*/ __, __, __, __, __, __,
+LMOD   , LHUD, LSAD,  LVAD, __, __,   /*|*/ __, __, __, __, __, __,
+                     ESC, SYMBS, SPC, /*|*/ ENT, MVMNT, ALTKN
+),
+
+[LAYER_LAYER] = GLAYOUT_kc(
+TO_BASE    , __, __, __, __, __,  /*|*/   __, __, __, __, __, __,
+__         , __, __, __, __, __,  /*|*/   __, __, __, __, __, __,
+TO_MOVEMENT, __, __, __, __, RST, /*|*/ RST, __, __, __, __, __,
+                     __, __, __,  /*|*/   __, __, __
+),
+
 };
 
 int RGB_current_mode;

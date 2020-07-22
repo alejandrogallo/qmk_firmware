@@ -14,6 +14,8 @@ MOUSEKEY_ENABLE = yes
 
 TAP_DANCE_ENABLE = no
 
+#ifdef GALLO_JOYSTICK
 JOYSTICK_ENABLE = yes
 POINTING_DEVICE_ENABLE = yes # Generic Pointer, not as big as mouse keys hopefully.
 RGBLIGHT_ENABLE = yes
+#endif
