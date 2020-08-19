@@ -87,6 +87,11 @@ enum macro_keycodes {
 #define KC_TO_ADJT TO(_ADJUST)
 #define KC_TO_LYR TO(LAYER_LAYER)
 
+#define TO_BASE KC_TO_BASE
+#define KC_RST RESET
+#define TO_MOVEMENT KC_TO_MOVEMENT
+#define __ KC_NO
+
 
 
 
@@ -119,7 +124,7 @@ LMOD   , LHUD, LSAD,  LVAD, __, __,   /*|*/ __, __, __, __, __, __,
                      ESC, SYMBS, SPC, /*|*/ ENT, MVMNT, ALTKN
 ),
 
-[LAYER_LAYER] = GLAYOUT_kc(
+[LAYER_LAYER] = LAYOUT_kc(
 TO_BASE    , __, __, __, __, __,  /*|*/   __, __, __, __, __, __,
 __         , __, __, __, __, __,  /*|*/   __, __, __, __, __, __,
 TO_MOVEMENT, __, __, __, __, RST, /*|*/ RST, __, __, __, __, __,
