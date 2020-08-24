@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 Q  , W  , E     , R   , T   ,       /*|*/       Y  , U     , I   , O   , P   ,
 A  , S  , D     , F   , G   ,       /*|*/       H  , J     , K   , L   , SCLN,
 Z  , X  , C     , V   , B   ,       /*|*/       N  , M     , COMM, DOT , SLSH,
-ESC, TAB, TO_LYR, BSPC, LSFT, LCTL, /*|*/ LALT, SPC, MO_PRG, MINS, QUOT, ENT
+ESC, TAB, TO_LYR, LGUI, LSFT, LCTL, /*|*/ LALT, SPC, MO_PRG, MINS, QUOT, ENT
 
 ),
 
@@ -55,7 +55,7 @@ ESC, TAB, TO_LYR, BSPC, LSFT, LCTL, /*|*/ LALT, SPC, MO_PRG, MINS, QUOT, ENT
 EXLM, AT  , HASH, DOLLAR, PERCENT,       /*|*/       CIRC, 7   , 8 , 9  , ASTR,
 LCBR, RCBR, QUOT, GRAVE , PIPE   ,       /*|*/       BSPC, 4   , 5 , 6  , PLUS,
 LBRC, RBRC, LPRN, RPRN  , AMPR   ,       /*|*/       0   , 1   , 2 , 3  , BSLS,
-ESC , INS , __  , LGUI  , LSFT   , LCTL, /*|*/ LALT, SPC , TRNS, __, DOT, EQL
+ESC , INS , __  , BSPC  , LSFT   , LCTL, /*|*/ LALT, SPC , TRNS, __, DOT, EQL
 
 ) ,
 
