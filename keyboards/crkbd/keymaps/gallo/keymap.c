@@ -78,6 +78,10 @@ enum macro_keycodes {
 #define KC_MLCK KC_MS_BTN1
 #define KC_MRCK KC_MS_BTN2
 #define KC_MCCK KC_MS_BTN3
+/* buttons */
+#define KC_MB1 KC_MS_BTN1
+#define KC_MB2 KC_MS_BTN2
+#define KC_MB3 KC_MS_BTN3
 
 
 #define KC_GUIEI GUI_T(KC_LANG2)
@@ -92,6 +96,7 @@ enum macro_keycodes {
 #define TO_MOVEMENT KC_TO_MOVEMENT
 #define __ KC_NO
 
+#define KC_RGBMF RGB_MODE_FORWARD
 
 
 
@@ -111,22 +116,22 @@ LSFT, LBRC, RBRC, LPRN, RPRN  , AMPR   , /*|*/ 0         , 1, 2, 3, BSLS, EQL ,
 ),
 
 [_MVMNT] = LAYOUT_kc(
-TO_BASE, VOLU, HOME, UP  , END , PGUP, /*|*/ DEL, MLCK, MCCK, MRCK, WHU, BSPC,
-TO_ADJT, VOLD, LEFT, DOWN, RGHT, PGDN, /*|*/ MS_L, MS_D , MS_U, MS_R, WHD, __ ,
-TO_BASE, F1  , F2  , F3  , F4  , F5  , /*|*/ __, MS_L, MS_D, MS_R, __, ENT ,
+TO_BASE, HOME,  MB2, PGDN, PGUP, MB1 , /*|*/  __ , MB1 , MB3 , MB2,  DEL, BSPC,
+TO_ADJT,  END, LEFT, DOWN,   UP, RGHT, /*|*/ MS_L, MS_D, MS_U, MS_R, INS,   __,
+TO_BASE, F1  , F2  , F3  , F4  , F5  , /*|*/ WHL , WHD , WHU ,  WHR, CLR, ENT ,
                       ESC, LSFT, LCTL, /*|*/ LALT,  SPC, SYMBS
 ),
 
 [_ADJUST] = LAYOUT_kc(
-TO_BASE, LRST,  __ ,   __ , __, __,   /*|*/ __, __, __, __, __, __,
-LTOG   , LHUI, LSAI,  LVAI, __, __,   /*|*/ __, __, __, __, __, __,
-LMOD   , LHUD, LSAD,  LVAD, __, __,   /*|*/ __, __, __, __, __, __,
-                     ESC, SYMBS, SPC, /*|*/ ENT, MVMNT, ALTKN
+TO_BASE, LRST,  __ ,   __ , __, RGBMF, /*|*/ __, __, __, __, __, __,
+LTOG   , LHUI, LSAI,  LVAI, __,    __, /*|*/ __, __, __, __, __, LTOG,
+LMOD   , LHUD, LSAD,  LVAD, __,    __, /*|*/ __, __, __, __, __, __,
+                      ESC, SYMBS, SPC,  /*|*/ ENT, MVMNT, ALTKN
 ),
 
 [LAYER_LAYER] = LAYOUT_kc(
 TO_BASE    , __, __, __, __, __,  /*|*/   __, __, __, __, __, __,
-__         , __, __, __, __, __,  /*|*/   __, __, __, __, __, __,
+TO_ADJT    , __, __, __, __, __,  /*|*/   __, __, __, __, __, __,
 TO_MOVEMENT, __, __, __, __, RST, /*|*/ RST, __, __, __, __, __,
                      __, __, __,  /*|*/   __, __, __
 ),

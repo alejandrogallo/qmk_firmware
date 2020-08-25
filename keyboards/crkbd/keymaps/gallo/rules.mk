@@ -19,3 +19,5 @@ JOYSTICK_ENABLE = yes
 POINTING_DEVICE_ENABLE = yes # Generic Pointer, not as big as mouse keys hopefully.
 RGBLIGHT_ENABLE = yes
 #endif
+
+RGBLIGHT_ENABLE = yes
