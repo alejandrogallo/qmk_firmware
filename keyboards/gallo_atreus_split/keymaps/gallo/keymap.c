@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 Q  , W  , E     , R   , T   ,       /*|*/       Y  , U     , I   , O   , P   ,
 A  , S  , D     , F   , G   ,       /*|*/       H  , J     , K   , L   , SCLN,
-Z  , X  , C     , V   , B   ,    A, /*|*/    B, N  , M     , COMM, DOT , SLSH,
+Z  , X  , C     , V   , B   , LALT, /*|*/ LCTL, N  , M     , COMM, DOT , SLSH,
 ESC, TAB, TO_LYR, LGUI, LSFT, LCTL, /*|*/ LALT, SPC, MO_PRG, MINS, QUOT, ENT
 
 ),
@@ -53,7 +53,7 @@ ESC, TAB, TO_LYR, LGUI, LSFT, LCTL, /*|*/ LALT, SPC, MO_PRG, MINS, QUOT, ENT
 
 EXLM, AT  , HASH, DOLLAR, PERCENT,       /*|*/       CIRC, 7   , 8 , 9  , ASTR,
 LCBR, RCBR, QUOT, GRAVE , PIPE   ,       /*|*/       BSPC, 4   , 5 , 6  , PLUS,
-LBRC, RBRC, LPRN, RPRN  , AMPR   ,   __, /*|*/   __, 0   , 1   , 2 , 3  , BSLS,
+LBRC, RBRC, LPRN, RPRN  , AMPR   , LALT, /*|*/ LCTL, 0   , 1   , 2 , 3  , BSLS,
 ESC , INS , __  , BSPC  , LSFT   , LCTL, /*|*/ LALT, SPC , TRNS, __, DOT, EQL
 
 ) ,
@@ -63,7 +63,7 @@ ESC , INS , __  , BSPC  , LSFT   , LCTL, /*|*/ LALT, SPC , TRNS, __, DOT, EQL
 
 HOME   , MB2 , PGDN, PGUP, MB1 ,       /*|*/       __  , MB1 , MB3 , MB2 , DEL,
 END    , LEFT, DOWN, UP  , RGHT,       /*|*/       MS_L, MS_D, MS_U, MS_R, INS,
-F1     , F2  , F3  , F4  , F5  ,   __, /*|*/   __, WHL , WHD , WHU , WHR , CLR,
+F1     , F2  , F3  , F4  , F5  , LALT, /*|*/ LCTL, WHL , WHD , WHU , WHR , CLR,
 TO_BASE, __  , LGUI, BSPC, LSFT, LCTL, /*|*/ LALT, AC0 , AC1 , AC2 , __  , ENT
 
 ),
