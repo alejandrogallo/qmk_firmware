@@ -91,6 +91,10 @@ enum macro_keycodes {
 #define KC_TO_ADJT TO(_ADJUST)
 #define KC_TO_LYR TO(LAYER_LAYER)
 
+// mod tabs
+#define KC_C_ESC LCTL_T(KC_ESC)
+#define KC_M_ENT LALT_T(KC_ENT)
+
 #define TO_BASE KC_TO_BASE
 #define KC_RST RESET
 #define TO_MOVEMENT KC_TO_MOVEMENT
@@ -105,14 +109,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  ESC,         Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P, BSPC,
  TAB,         A, S, D, F, G, /*|*/ H, J,    K,   L, SCLN, QUOT,
  TO_LYR, Z, X, C, V, B, /*|*/ N, M, COMM, DOT, SLSH,  ENT,
-           LGUI, LSFT, LCTL, /*|*/ LALT, SPC, SYMBS
+           LGUI, LSFT, C_ESC, /*|*/ M_ENT, SPC, SYMBS
 ),
 
 [_SYMBS] = LAYOUT_kc(
-ESC , EXLM, AT  , HASH, DOLLAR, PERCENT, /*|*/ CIRCUMFLEX, 7, 8, 9, ASTR, MINS,
-LCTL, LCBR, RCBR, QUOT, GRAVE , PIPE   , /*|*/ BSPC      , 4, 5, 6, PLUS, PLUS,
-LSFT, LBRC, RBRC, LPRN, RPRN  , AMPR   , /*|*/ 0         , 1, 2, 3, BSLS, EQL ,
-                       LGUI, LSFT, LCTL, /*|*/ LALT, SPC, SYMBS
+ESC , EXLM, AT  , HASH, DOLLAR, PERCENT , /*|*/ CIRCUMFLEX, 7, 8, 9, ASTR, MINS,
+LCTL, LCBR, RCBR, QUOT, GRAVE , PIPE    , /*|*/ BSPC      , 4, 5, 6, PLUS, PLUS,
+LSFT, LBRC, RBRC, LPRN, RPRN  , AMPR    , /*|*/ 0         , 1, 2, 3, BSLS, EQL ,
+                       LGUI, LSFT, C_ESC, /*|*/ M_ENT, SPC, SYMBS
 ),
 
 [_MVMNT] = LAYOUT_kc(
