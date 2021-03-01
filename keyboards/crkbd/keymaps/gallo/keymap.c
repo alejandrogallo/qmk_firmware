@@ -94,6 +94,11 @@ enum macro_keycodes {
 // mod tabs
 #define KC_C_ESC LCTL_T(KC_ESC)
 #define KC_M_ENT LALT_T(KC_ENT)
+#define KC_G_SPC LGUI_T(KC_SPC)
+
+// symbols and such
+#define KC_MO_SYMBS MO(_SYMBS)
+#define KC_MO_MVMNT MO(_MVMNT)
 
 #define TO_BASE KC_TO_BASE
 #define KC_RST RESET
@@ -108,34 +113,34 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT_kc(
  ESC,         Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P, BSPC,
  TAB,         A, S, D, F, G, /*|*/ H, J,    K,   L, SCLN, QUOT,
- TO_LYR, Z, X, C, V, B, /*|*/ N, M, COMM, DOT, SLSH,  ENT,
-           LGUI, LSFT, C_ESC, /*|*/ M_ENT, SPC, SYMBS
+      TO_LYR, Z, X, C, V, B, /*|*/ N, M, COMM, DOT, SLSH,  ENT,
+           MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
 ),
 
 [_SYMBS] = LAYOUT_kc(
-ESC , EXLM, AT  , HASH, DOLLAR, PERCENT , /*|*/ CIRCUMFLEX, 7, 8, 9, ASTR, MINS,
-LCTL, LCBR, RCBR, QUOT, GRAVE , PIPE    , /*|*/ BSPC      , 4, 5, 6, PLUS, PLUS,
-LSFT, LBRC, RBRC, LPRN, RPRN  , AMPR    , /*|*/ 0         , 1, 2, 3, BSLS, EQL ,
-                       LGUI, LSFT, C_ESC, /*|*/ M_ENT, SPC, SYMBS
+ESC , ESC, MINS  , EQL, __, __,          /*|*/ TO_LYR    , 7, 8, 9, ASTR, MINS,
+LCTL, LBRC, RBRC, QUOT, GRAVE , PIPE   , /*|*/ BSPC      , 4, 5, 6, PLUS, PLUS,
+LSFT, ENT, TAB, LPRN, RPRN  , AMPR     , /*|*/ 0         , 1, 2, 3, BSLS, EQL ,
+                  MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
 ),
 
 [_MVMNT] = LAYOUT_kc(
-TO_BASE, HOME,  MB2, PGDN, PGUP, MB1 , /*|*/  __ , MB1 , MB3 , MB2,  DEL, BSPC,
+TO_BASE, HOME,  MB2, PGDN, PGUP, MB1 , /*|*/ TO_BASE, MB1 , MB3 , MB2,  DEL, BSPC,
 TO_ADJT,  END, LEFT, DOWN,   UP, RGHT, /*|*/ MS_L, MS_D, MS_U, MS_R, INS,   __,
 TO_BASE, F1  , F2  , F3  , F4  , F5  , /*|*/ WHL , WHD , WHU ,  WHR, CLR, ENT ,
-                      ESC, LSFT, LCTL, /*|*/ LALT,  SPC, SYMBS
+                MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
 ),
 
 [_ADJUST] = LAYOUT_kc(
 TO_BASE, LRST,  __ ,   __ , __, RGBMF, /*|*/ __, __, __, __, __, __,
 LTOG   , LHUI, LSAI,  LVAI, __,    __, /*|*/ __, __, __, __, __, LTOG,
 LMOD   , LHUD, LSAD,  LVAD, __,    __, /*|*/ __, __, __, __, __, __,
-                      ESC, SYMBS, SPC,  /*|*/ ENT, MVMNT, ALTKN
+                MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
 ),
 
 [LAYER_LAYER] = LAYOUT_kc(
-TO_BASE    , __, __, __, __, __,  /*|*/   __, __, __, __, __, __,
-TO_ADJT    , __, __, __, __, __,  /*|*/   __, __, __, __, __, __,
+TO_BASE    , TO_BASE, __, __, __, __,  /*|*/   TO_MOVEMENT, __, __, __, __, __,
+TO_ADJT    , __, __, __, __, __,  /*|*/   TO_ADJT, __, __, __, __, __,
 TO_MOVEMENT, __, __, __, __, RST, /*|*/ RST, __, __, __, __, __,
                      __, __, __,  /*|*/   __, __, __
 ),
