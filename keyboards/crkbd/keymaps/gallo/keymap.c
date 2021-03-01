@@ -39,6 +39,8 @@ void pointing_device_task(void) {
 #define _MVMNT 2
 #define _ADJUST 3
 #define LAYER_LAYER 4
+#define _HPR 5
+#define _SUPER 6
 
 enum custom_keycodes {
   BASE = SAFE_RANGE,
@@ -46,7 +48,7 @@ enum custom_keycodes {
   MVMNT,
   ADJUST,
   BACKLIT,
-  RGBRST
+  RGBRST,
 };
 
 enum macro_keycodes {
@@ -94,7 +96,8 @@ enum macro_keycodes {
 // mod tabs
 #define KC_C_ESC LCTL_T(KC_ESC)
 #define KC_M_ENT LALT_T(KC_ENT)
-#define KC_G_SPC LGUI_T(KC_SPC)
+#define KC_G_SPC KC_SPC
+#define KC_BT1_DOWN MT(KC_A, KC_MS_BTN1)
 
 // symbols and such
 #define KC_MO_SYMBS MO(_SYMBS)
@@ -108,8 +111,11 @@ enum macro_keycodes {
 #define KC_RGBMF RGB_MODE_FORWARD
 
 
+#define KC_MO_HYPR MO(_HPR)
+#define KC_MO_SUPER MO(_SUPER)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+
 [_BASE] = LAYOUT_kc(
  ESC,         Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P, BSPC,
  TAB,         A, S, D, F, G, /*|*/ H, J,    K,   L, SCLN, QUOT,
@@ -118,17 +124,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_SYMBS] = LAYOUT_kc(
-ESC , ESC, MINS  , EQL, __, __,          /*|*/ TO_LYR    , 7, 8, 9, ASTR, MINS,
-LCTL, LBRC, RBRC, QUOT, GRAVE , PIPE   , /*|*/ BSPC      , 4, 5, 6, PLUS, PLUS,
-LSFT, ENT, TAB, LPRN, RPRN  , AMPR     , /*|*/ 0         , 1, 2, 3, BSLS, EQL ,
-                  MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
+ESC , TO_LYR, __, __, LEFT, RIGHT,        /*|*/ DEL    , 7, 8, 9, MINS, MINS,
+LCTL, TAB, RBRC, QUOT, GRAVE , BSLS   ,   /*|*/ BSPC   , 4, 5, 6, EQL, PLUS,
+LSFT, LBRC, RBRC, LPRN, RPRN  , AMPR    , /*|*/ 0      , 1, 2, 3, ENT, EQL ,
+                    MO_SUPER, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
+),
+
+[_SUPER] = LAYOUT_kc_super(
+ ESC,         Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P, BSPC,
+ TAB,         A, S, D, F, G, /*|*/ H, J,    K,   L, SCLN, QUOT,
+      TO_LYR, Z, X, C, V, B, /*|*/ N, M, COMM, DOT, SLSH,  ENT,
+           MO_SUPER, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_HYPR
+),
+
+[_HPR] = LAYOUT_kc_hyper(
+ ESC,         Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P, BSPC,
+ TAB,         A, S, D, F, G, /*|*/ H, J,    K,   L, SCLN, QUOT,
+      TO_LYR, Z, X, C, V, B, /*|*/ N, M, COMM, DOT, SLSH,  ENT,
+           MO_HYPR, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_HYPR
 ),
 
 [_MVMNT] = LAYOUT_kc(
 TO_BASE, HOME,  MB2, PGDN, PGUP, MB1 , /*|*/ TO_BASE, MB1 , MB3 , MB2,  DEL, BSPC,
 TO_ADJT,  END, LEFT, DOWN,   UP, RGHT, /*|*/ MS_L, MS_D, MS_U, MS_R, INS,   __,
 TO_BASE, F1  , F2  , F3  , F4  , F5  , /*|*/ WHL , WHD , WHU ,  WHR, CLR, ENT ,
-                MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
+                MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, RCTL, RSFT
 ),
 
 [_ADJUST] = LAYOUT_kc(
