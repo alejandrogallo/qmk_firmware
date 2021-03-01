@@ -109,14 +109,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_SYMBS] = LAYOUT_kc(
-ESC , EXLM, AT  , HASH, DOLLAR, PERCENT, /*|*/ CIRCUMFLEX, 7, 8, 9, ASTR, MINS,
-LCTL, LCBR, RCBR, QUOT, GRAVE , PIPE   , /*|*/ BSPC      , 4, 5, 6, PLUS, PLUS,
-LSFT, LBRC, RBRC, LPRN, RPRN  , AMPR   , /*|*/ 0         , 1, 2, 3, BSLS, EQL ,
+ESC , ESC, MINS  , EQL, __, __,          /*|*/ TO_LYR    , 7, 8, 9, ASTR, MINS,
+LCTL, LBRC, RBRC, QUOT, GRAVE , PIPE   , /*|*/ BSPC      , 4, 5, 6, PLUS, PLUS,
+LSFT, ENT, TAB, LPRN, RPRN  , AMPR     , /*|*/ 0         , 1, 2, 3, BSLS, EQL ,
                        LGUI, LSFT, LCTL, /*|*/ LALT, SPC, SYMBS
 ),
 
 [_MVMNT] = LAYOUT_kc(
-TO_BASE, HOME,  MB2, PGDN, PGUP, MB1 , /*|*/  __ , MB1 , MB3 , MB2,  DEL, BSPC,
+TO_BASE, HOME,  MB2, PGDN, PGUP, MB1 , /*|*/ TO_BASE, MB1 , MB3 , MB2,  DEL, BSPC,
 TO_ADJT,  END, LEFT, DOWN,   UP, RGHT, /*|*/ MS_L, MS_D, MS_U, MS_R, INS,   __,
 TO_BASE, F1  , F2  , F3  , F4  , F5  , /*|*/ WHL , WHD , WHU ,  WHR, CLR, ENT ,
                       ESC, LSFT, LCTL, /*|*/ LALT,  SPC, SYMBS
@@ -130,8 +130,8 @@ LMOD   , LHUD, LSAD,  LVAD, __,    __, /*|*/ __, __, __, __, __, __,
 ),
 
 [LAYER_LAYER] = LAYOUT_kc(
-TO_BASE    , __, __, __, __, __,  /*|*/   __, __, __, __, __, __,
-TO_ADJT    , __, __, __, __, __,  /*|*/   __, __, __, __, __, __,
+TO_BASE    , TO_BASE, __, __, __, __,  /*|*/   TO_MOVEMENT, __, __, __, __, __,
+TO_ADJT    , __, __, __, __, __,  /*|*/   TO_ADJT, __, __, __, __, __,
 TO_MOVEMENT, __, __, __, __, RST, /*|*/ RST, __, __, __, __, __,
                      __, __, __,  /*|*/   __, __, __
 ),
