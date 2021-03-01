@@ -9,8 +9,12 @@
 // #define MASTER_RIGHT
 // #define EE_HANDS
 
+#define TAPPING_TERM 220
+#define IGNORE_MOD_TAP_INTERRUPT
+#undef PERMISSIVE_HOLD
+#undef TAPPING_FORCE_HOLD
 
-#define USE_SERIAL_PD2
+//#define USE_SERIAL_PD2
 
 // #define TAPPING_FORCE_HOLD
 // #define TAPPING_TERM 100
