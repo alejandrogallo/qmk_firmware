@@ -96,6 +96,7 @@ enum macro_keycodes {
 // mod tabs
 #define KC_C_ESC LCTL_T(KC_ESC)
 #define KC_M_ENT LALT_T(KC_ENT)
+#define KC_CTL_or_SLSH RCTL_T(KC_SLSH)
 #define KC_G_SPC KC_SPC
 #define KC_BT1_DOWN MT(KC_A, KC_MS_BTN1)
 
@@ -113,19 +114,20 @@ enum macro_keycodes {
 
 #define KC_MO_HYPR MO(_HPR)
 #define KC_MO_SUPER MO(_SUPER)
+#define KC_BSP_MOV LT(_MVMNT, KC_BSPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_BASE] = LAYOUT_kc(
  ESC,         Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P, BSPC,
  TAB,         A, S, D, F, G, /*|*/ H, J,    K,   L, SCLN, QUOT,
-      TO_LYR, Z, X, C, V, B, /*|*/ N, M, COMM, DOT, SLSH,  ENT,
-           MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
+      TO_LYR, Z, X, C, V, B, /*|*/ N, M, COMM, DOT, CTL_or_SLSH,  ENT,
+           BSP_MOV, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
 ),
 
 [_SYMBS] = LAYOUT_kc(
-ESC , TO_LYR, __, __, LEFT, RIGHT,        /*|*/ DEL    , 7, 8, 9, MINS, MINS,
-LCTL, TAB, RBRC, QUOT, GRAVE , BSLS   ,   /*|*/ BSPC   , 4, 5, 6, EQL, PLUS,
+ESC , TAB, __, TO_LYR, LEFT, RIGHT,        /*|*/ DEL    , 7, 8, 9, MINS, MINS,
+LCTL, LCBR, RCBR, QUOT, GRAVE , BSLS   ,   /*|*/ BSPC   , 4, 5, 6, EQL, PLUS,
 LSFT, LBRC, RBRC, LPRN, RPRN  , AMPR    , /*|*/ 0      , 1, 2, 3, ENT, EQL ,
                     MO_SUPER, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
 ),
@@ -141,7 +143,7 @@ LSFT, LBRC, RBRC, LPRN, RPRN  , AMPR    , /*|*/ 0      , 1, 2, 3, ENT, EQL ,
  ESC,         Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P, BSPC,
  TAB,         A, S, D, F, G, /*|*/ H, J,    K,   L, SCLN, QUOT,
       TO_LYR, Z, X, C, V, B, /*|*/ N, M, COMM, DOT, SLSH,  ENT,
-           MO_HYPR, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_HYPR
+           MO_HYPR, RST, C_ESC, /*|*/ M_ENT, G_SPC, MO_HYPR
 ),
 
 [_MVMNT] = LAYOUT_kc(
