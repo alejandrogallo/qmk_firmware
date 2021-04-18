@@ -1,7 +1,6 @@
 #pragma once
 
-//#include "quantum.h"
-
+// LAYERS ====================================================================
 #define _BASE 0
 #define _SYMBS 1
 #define _MVMNT 2
@@ -9,7 +8,7 @@
 #define _HPR 4
 #define _SUPER 5
 
-
+// KEYS ====================================================================
 #define KC______ KC_TRNS
 #define KC___  KC_NO
 #define KC_RST   RESET
@@ -72,6 +71,7 @@
 #define KC__F5 KC_F5
 
 
+// BASIC LAYERS ============================================================
 #define LUAKH_QWERTY_1 \
                                 Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P
 #define LUAKH_QWERTY_2 \
@@ -100,8 +100,7 @@ LUAKH_SYMBOLS_4          MO_SUPER, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
 #define LUAKH_MOVEMENT_4 \
                     MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, RCTL, RSFT
 
-// GENERAL HELPING MACROS ==============================
-// =====================================================
+// GENERAL HELPING MACROS =====================================================
 #define LUAKH_GET_NAME(NAME, ROW) \
                                   \
   LUAKH ## _ ## NAME ## _ ## ROW
