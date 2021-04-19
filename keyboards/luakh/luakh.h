@@ -41,13 +41,27 @@
 #define KC_TO_LYR TO(LAYER_LAYER)
 
 // mod tabs
-#define KC_G_GUI LGUI_T(KC_G)
-#define KC_H_GUI RGUI_T(KC_H)
 #define KC_C_ESC LCTL_T(KC_ESC)
 #define KC_M_ENT LALT_T(KC_ENT)
 #define KC_CTL_or_SLSH RCTL_T(KC_SLSH)
 #define KC_G_SPC KC_SPC
 #define KC_BT1_DOWN MT(KC_A, KC_MS_BTN1)
+
+// Home row
+#define LHYPR_T(kc) MT(MOD_LCTL | MOD_LSFT | MOD_LALT | MOD_LGUI, kc)
+#define RHYPR_T(kc) MT(MOD_RCTL | MOD_RSFT | MOD_RALT | MOD_RGUI, kc)
+
+#define KC_H_GUI    RGUI_T(KC_H)
+#define KC_J_CTL    RCTL_T(KC_J)
+#define KC_K_ALT    RALT_T(KC_K)
+#define KC_L_SFT    RSFT_T(KC_L)
+#define KC_SCLN_HPR RHYPR_T(KC_SCLN)
+
+#define KC_G_GUI LGUI_T(KC_G)
+#define KC_F_CTL LCTL_T(KC_F)
+#define KC_D_ALT LALT_T(KC_D)
+#define KC_S_SFT RSFT_T(KC_S)
+#define KC_A_HPR LHYPR_T(KC_A)
 
 // symbols and such
 #define KC_MO_SYMBS MO(_SYMBS)
@@ -75,7 +89,7 @@
 #define LUAKH_QWERTY_1 \
                                 Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P
 #define LUAKH_QWERTY_2 \
-                                A, S, D, F, G_GUI, /*|*/ H_GUI, J,    K,   L, SCLN
+                                A_HPR, S_SFT, D_ALT, F_CTL, G_GUI, /*|*/ H_GUI, J_CTL,    K_ALT,   L_SFT, SCLN_HPR
 #define LUAKH_QWERTY_3 \
                                 Z, X, C, V, B, /*|*/ N, M, COMM, DOT, SLSH
 #define LUAKH_QWERTY_4 \
