@@ -84,12 +84,14 @@
 #define KC__F4 KC_F4
 #define KC__F5 KC_F5
 
+//#define KC_M_ENT_GUI ACTION_TAP_DANCE_DOUBLE(KC_ENT, KC_M_ENT)
 
 // BASIC LAYERS ============================================================
 #define LUAKH_QWERTY_1 \
                                 Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P
 #define LUAKH_QWERTY_2 \
-                                A_HPR, S_SFT, D_ALT, F_CTL, G_GUI, /*|*/ H_GUI, J_CTL,    K_ALT,   L_SFT, SCLN_HPR
+                                A, S, D_ALT, F_CTL, G_GUI, \
+                                     /*|*/ H_GUI, J_CTL, K_ALT, L, SCLN
 #define LUAKH_QWERTY_3 \
                                 Z, X, C, V, B, /*|*/ N, M, COMM, DOT, SLSH
 #define LUAKH_QWERTY_4 \
