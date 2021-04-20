@@ -59,6 +59,9 @@
 #define KC_L_SFT    RSFT_T(KC_L)
 #define KC_SCLN_HPR RHYPR_T(KC_SCLN)
 
+#define KC_LANGL KC_NUBS
+#define KC_RANGL S(KC_NUBS)
+
 #define KC_G_GUI LGUI_T(KC_G)
 #define KC_F_CTL LCTL_T(KC_F)
 #define KC_D_ALT LALT_T(KC_D)
@@ -90,17 +93,16 @@
 
 // BASIC LAYERS ============================================================
 #define LUAKH_QWERTY_1 \
-                                Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P
+                                    Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P
 #define LUAKH_QWERTY_2 \
-                                A, S, D_ALT, F_CTL, G, \
-                                     /*|*/ H, J_CTL, K_ALT, L, SCLN
+                            A, S, D_ALT, F_CTL, G, /*|*/ H, J_CTL, K_ALT, L, SCLN
 #define LUAKH_QWERTY_3 \
                                 Z, X, C, V_GUI, B, /*|*/ N, M_GUI, COMM, DOT, SLSH
 #define LUAKH_QWERTY_4 \
                          BSP_MOV, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
 
 #define \
-LUAKH_SYMBOLS_1 TAB , NO  , NO  , LEFT , RIGHT, /*|*/ DEL , 7, 8, 9, MINS
+LUAKH_SYMBOLS_1 EXLM, AT , TAB, DOLLAR , PIPE , /*|*/ DEL , 7, 8, 9, MINS
 #define \
 LUAKH_SYMBOLS_2 LCBR, RCBR, QUOT, GRAVE , BSLS, /*|*/ BSPC, 4, 5, 6, EQL
 #define \
@@ -114,9 +116,9 @@ LUAKH_SYMBOLS_4          MO_SUPER, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
 #define LUAKH_MOVEMENT_2 \
               END, LEFT, DOWN,   UP, RGHT, /*|*/ MS_L, MS_D, MS_U, MS_R, INS
 #define LUAKH_MOVEMENT_3 \
-             _F1  , _F2  , _F3  , _F4  , _F5  , /*|*/ WHL , WHD , WHU ,  WHR, CLR
+             _F1  , _F2  , _F3 , _F4, _F5, /*|*/ WHL , WHD , WHU ,  WHR, CLR
 #define LUAKH_MOVEMENT_4 \
-                    MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, RCTL, RSFT
+                    MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, RCTL, NO
 
 // GENERAL HELPING MACROS =====================================================
 #define LUAKH_GET_NAME(NAME, ROW) \
@@ -124,4 +126,8 @@ LUAKH_SYMBOLS_4          MO_SUPER, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
   LUAKH ## _ ## NAME ## _ ## ROW
 
 #define LUAKH_APP(FUN, ...) FUN(__VA_ARGS__)
+
+// LUXURY KEYS ================================================================
+//
+// symbol layer: < and > are not really needed
 
