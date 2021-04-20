@@ -52,6 +52,8 @@
 #define RHYPR_T(kc) MT(MOD_RCTL | MOD_RSFT | MOD_RALT | MOD_RGUI, kc)
 
 #define KC_H_GUI    RGUI_T(KC_H)
+#define KC_M_GUI    RGUI_T(KC_M)
+#define KC_V_GUI    RGUI_T(KC_V)
 #define KC_J_CTL    RCTL_T(KC_J)
 #define KC_K_ALT    RALT_T(KC_K)
 #define KC_L_SFT    RSFT_T(KC_L)
@@ -90,10 +92,10 @@
 #define LUAKH_QWERTY_1 \
                                 Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P
 #define LUAKH_QWERTY_2 \
-                                A, S, D_ALT, F_CTL, G_GUI, \
-                                     /*|*/ H_GUI, J_CTL, K_ALT, L, SCLN
+                                A, S, D_ALT, F_CTL, G, \
+                                     /*|*/ H, J_CTL, K_ALT, L, SCLN
 #define LUAKH_QWERTY_3 \
-                                Z, X, C, V, B, /*|*/ N, M, COMM, DOT, SLSH
+                                Z, X, C, V_GUI, B, /*|*/ N, M_GUI, COMM, DOT, SLSH
 #define LUAKH_QWERTY_4 \
                          BSP_MOV, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
 
