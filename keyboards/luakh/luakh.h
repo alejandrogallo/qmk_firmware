@@ -55,7 +55,7 @@
 #define KC_M_GUI    RGUI_T(KC_M)
 #define KC_V_GUI    RGUI_T(KC_V)
 #define KC_J_CTL    RCTL_T(KC_J)
-#define KC_K_ALT    RALT_T(KC_K)
+#define KC_K_ALT    LALT_T(KC_K)
 #define KC_L_SFT    RSFT_T(KC_L)
 #define KC_SCLN_HPR RHYPR_T(KC_SCLN)
 
