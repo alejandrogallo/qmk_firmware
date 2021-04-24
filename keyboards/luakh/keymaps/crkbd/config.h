@@ -22,19 +22,18 @@
 
 // RGB ========================================================================
 #define RGB_DI_PIN D3
-#undef RGBLED_NUM
 #define RGBLIGHT_ANIMATIONS
 //#define RGB_MATRIX_ENABLE
 #define RGBLED_NUM 54
 #define RGBLED_SPLIT { 27, 27 }
-#define RGBLIGHT_LIMIT_VAL 120
-#define RGBLIGHT_HUE_STEP 10
-#define RGBLIGHT_SAT_STEP 17
-#define RGBLIGHT_VAL_STEP 17
+//#define RGBLIGHT_LIMIT_VAL 120
+//#define RGBLIGHT_HUE_STEP 10
+//#define RGBLIGHT_SAT_STEP 17
+//#define RGBLIGHT_VAL_STEP 17
 //TODO: SET RGB
-//#ifndef RGBLIGHT_ENABLE
-//#  define RGBLIGHT_ENABLE
-//#endif
+#ifndef RGBLIGHT_ENABLE
+#  define RGBLIGHT_ENABLE
+#endif
 
 // JOYSTICK ===================================================================
 #define JOYSTICK_BUTTON_COUNT 0

@@ -93,7 +93,7 @@
 
 // BASIC LAYERS ============================================================
 #define LUAKH_QWERTY_1 \
-                                    Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P
+                                 Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P
 #define LUAKH_QWERTY_2 \
                             A, S, D_ALT, F_CTL, G, /*|*/ H, J_CTL, K_ALT, L, SCLN
 #define LUAKH_QWERTY_3 \
@@ -112,13 +112,13 @@ LUAKH_SYMBOLS_4          MO_SUPER, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
 
 
 #define LUAKH_MOVEMENT_1 \
-             HOME,  MB2, PGDN, PGUP, MB1 , /*|*/ DEL, MB1 , MB3 , MB2,  DEL
+             HOME,  MB2, PGDN, PGUP, MB1 , /*|*/ DEL , MB1 , MB3 , MB2,  DEL
 #define LUAKH_MOVEMENT_2 \
               END, LEFT, DOWN,   UP, RGHT, /*|*/ MS_L, MS_D, MS_U, MS_R, INS
 #define LUAKH_MOVEMENT_3 \
              _F1  , _F2  , _F3 , _F4, _F5, /*|*/ WHL , WHD , WHU ,  WHR, CLR
 #define LUAKH_MOVEMENT_4 \
-                    MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, RCTL, NO
+                    MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, RCTL, LTOG
 
 // GENERAL HELPING MACROS =====================================================
 #define LUAKH_GET_NAME(NAME, ROW) \
