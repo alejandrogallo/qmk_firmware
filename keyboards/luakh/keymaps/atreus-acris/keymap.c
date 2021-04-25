@@ -7,13 +7,13 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-  [_BASE] = LUAKH_kc(QWERTY,
+  [BASE] = LUAKH_kc(QWERTY,
                      RST, NO, NO,          NO, NO, NO),
 
-  [_SYMBS] = LUAKH_kc(SYMBOLS,
+  [SYMBOLS] = LUAKH_kc(SYMBOLS,
                       RST, NO, NO,          NO, NO, NO),
 
-  [_MVMNT] = LUAKH_kc(MOVEMENT,
+  [MOVEMENT] = LUAKH_kc(MOVEMENT,
                       RST, NO, NO,          NO, NO, NO),
 
 };

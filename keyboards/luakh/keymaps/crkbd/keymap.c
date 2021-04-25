@@ -30,17 +30,22 @@ void pointing_device_task(void) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-[_BASE] = LUAKH_kc(QWERTY,
-                   ESC,          BSPC,
-                   TAB,          QUOT,
-                   NO,           ENT),
+[BASE] = LUAKH_kc(QWERTY,
+                  ESC,          BSPC,
+                  TAB,          QUOT,
+                  NO,           ENT),
 
-[_SYMBS] = LUAKH_kc(SYMBOLS,
-                    ESC,          MINS,
-                    LCTL,         PLUS,
-                    LSFT,         EQL),
+[SYMBOLS] = LUAKH_kc(SYMBOLS,
+                     ESC,          MINS,
+                     LCTL,         PLUS,
+                     LSFT,         EQL),
 
-[_MVMNT] = LUAKH_kc(MOVEMENT,
+[MOVEMENT] = LUAKH_kc(MOVEMENT,
+                      ENT,         ENT,
+                      ENT,         ENT,
+                      ENT,         ENT),
+
+[ADJUST] = LUAKH_kc(ADJUST,
                     ENT,         ENT,
                     ENT,         ENT,
                     ENT,         ENT),

@@ -1,16 +1,14 @@
 #pragma once
 
 // LAYERS ====================================================================
-#define _BASE 0
-#define _SYMBS 1
-#define _MVMNT 2
-#define LAYER_LAYER 3
-#define _HPR 4
-#define _SUPER 5
+enum Layers
+  { BASE = 0
+  , SYMBOLS
+  , MOVEMENT
+  , ADJUST
+  };
 
 // KEYS ====================================================================
-#define KC______ KC_TRNS
-#define KC___  KC_NO
 #define KC_RST   RESET
 #define KC_LTOG  RGB_TOG
 #define KC_LHUI  RGB_HUI
@@ -36,9 +34,8 @@
 
 #define KC_GUIEI GUI_T(KC_LANG2)
 #define KC_ALTKN ALT_T(KC_LANG1)
-#define KC_TO_MOVEMENT TO(_MVMNT)
-#define KC_TO_BASE TO(_BASE)
-#define KC_TO_LYR TO(LAYER_LAYER)
+#define KC_TO_BASE TO(BASE)
+#define KC_TG_ADJ TG(ADJUST)
 
 // mod tabs
 #define KC_C_ESC LCTL_T(KC_ESC)
@@ -69,8 +66,8 @@
 #define KC_A_HPR LHYPR_T(KC_A)
 
 // symbols and such
-#define KC_MO_SYMBS MO(_SYMBS)
-#define KC_MO_MVMNT MO(_MVMNT)
+#define KC_MO_SYMBS MO(SYMBOLS)
+#define KC_MO_MVMNT MO(MOVEMENT)
 
 #define TO_BASE KC_TO_BASE
 #define KC_RST RESET
@@ -80,8 +77,8 @@
 #define KC_RGBMF RGB_MODE_FORWARD
 
 #define KC_MO_HYPR MO(_HPR)
-#define KC_MO_SUPER MO(_SUPER)
-#define KC_BSP_MOV LT(_MVMNT, KC_BSPC)
+//#define KC_MO_SUPER MO(_SUPER)
+#define KC_BSP_MOV LT(MOVEMENT, KC_BSPC)
 
 #define KC__F1 KC_F1
 #define KC__F2 KC_F2
@@ -108,7 +105,7 @@ LUAKH_SYMBOLS_2 LCBR, RCBR, QUOT, GRAVE , BSLS, /*|*/ BSPC, 4, 5, 6, EQL
 #define \
 LUAKH_SYMBOLS_3 LBRC, RBRC, LPRN, RPRN  , AMPR, /*|*/ 0   , 1, 2, 3, ENT
 #define \
-LUAKH_SYMBOLS_4          MO_SUPER, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
+LUAKH_SYMBOLS_4          NO, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
 
 
 #define LUAKH_MOVEMENT_1 \
@@ -118,7 +115,16 @@ LUAKH_SYMBOLS_4          MO_SUPER, LSFT, C_ESC, /*|*/ M_ENT, G_SPC, MO_SYMBS
 #define LUAKH_MOVEMENT_3 \
              _F1  , _F2  , _F3 , _F4, _F5, /*|*/ WHL , WHD , WHU ,  WHR, CLR
 #define LUAKH_MOVEMENT_4 \
-                    MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, RCTL, LTOG
+                    MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, RCTL, TG_ADJ
+
+#define LUAKH_ADJUST_1 \
+              NO, LMOD, NO, NO, LTOG, /*|*/ NO , NO , NO , NO,  NO
+#define LUAKH_ADJUST_2 \
+                NO, NO, NO,   NO, NO, /*|*/ NO, NO, NO, NO, NO
+#define LUAKH_ADJUST_3 \
+             NO  , NO  , NO , NO, NO, /*|*/ NO , NO , NO ,  NO, NO
+#define LUAKH_ADJUST_4 \
+                          NO, NO, NO, /*|*/ NO, NO, TG_ADJ
 
 // GENERAL HELPING MACROS =====================================================
 #define LUAKH_GET_NAME(NAME, ROW) \
