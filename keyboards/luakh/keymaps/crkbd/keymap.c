@@ -21,19 +21,17 @@ void pointing_device_task(void) {
 }
 #endif
 
-#define _BASE 0
-#define _SYMBS 1
-#define _MVMNT 2
-#define LAYER_LAYER 3
-#define _HPR 4
-#define _SUPER 5
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [BASE] = LUAKH_kc(QWERTY,
                   ESC,          BSPC,
                   TAB,          QUOT,
                   NO,           ENT),
+
+[QWERTY_2] = LUAKH_kc(QWERTY_2,
+                      ESC,          BSPC,
+                      TAB,          QUOT,
+                      NO,           ENT),
 
 [SYMBOLS] = LUAKH_kc(SYMBOLS,
                      ESC,          MINS,
