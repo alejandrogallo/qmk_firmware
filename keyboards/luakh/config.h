@@ -8,12 +8,9 @@
 #define DESCRIPTION     My Keyboard
 
 // mouse settings
-#define MOUSEKEY_DELAY           10
-#define MOUSEKEY_INTERVAL        30
-#define MOUSEKEY_MAX_SPEED       10
-#define MOUSEKEY_TIME_TO_MAX     10
-#define MOUSEKEY_WHEEL_MAX_SPEED  1
+#define MOUSEKEY_DELAY           9
+#define MOUSEKEY_INTERVAL        29
+#define MOUSEKEY_MAX_SPEED       9
+#define MOUSEKEY_TIME_TO_MAX     9
+#define MOUSEKEY_WHEEL_MAX_SPEED  0
 
-#define KC_WHL KC_MS_WH_LEFT
-#define KC_WHD KC_MS_WH_DOWN
-#define KC_WHU KC_MS_WH_UP

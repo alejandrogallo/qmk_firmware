@@ -28,11 +28,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   TAB,          QUOT,
                   NO,           ENT),
 
-[QWERTY_2] = LUAKH_kc(QWERTY_2,
-                      ESC,          BSPC,
-                      TAB,          QUOT,
-                      NO,           ENT),
-
 [SYMBOLS] = LUAKH_kc(SYMBOLS,
                      ESC,          MINS,
                      LCTL,         PLUS,
@@ -48,20 +43,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     ENT,         ENT,
                     ENT,         ENT),
 
-
-/*[_SUPER] = LAYOUT_kc_super(*/
- /*ESC,         Q, W, E, R, T, [>|<] Y, U,    I,   O,    P, BSPC,*/
- /*TAB,         A, S, D, F, G, [>|<] H, J,    K,   L, SCLN, QUOT,*/
-      /*NO, Z, X, C, V, B, [>|<] N, M, COMM, DOT, SLSH,  ENT,*/
-           /*MO_SUPER, LSFT, C_ESC, [>|<] M_ENT, G_SPC, MO_HYPR*/
-/*),*/
-
-/*[_HPR] = LAYOUT_kc_hyper(*/
- /*ESC,         Q, W, E, R, T, [>|<] Y, U,    I,   O,    P, BSPC,*/
- /*TAB,         A, S, D, F, G, [>|<] H, J,    K,   L, SCLN, QUOT,*/
-      /*NO, Z, X, C, V, B, [>|<] N, M, COMM, DOT, SLSH,  ENT,*/
-           /*MO_HYPR, RST, C_ESC, [>|<] M_ENT, G_SPC, MO_HYPR*/
-/*),*/
+[SYSTEM] = LUAKH_kc(SYSTEM,
+                    ENT,         ENT,
+                    ENT,         ENT,
+                    ENT,         ENT),
 
 
 };

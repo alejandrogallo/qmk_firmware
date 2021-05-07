@@ -4,10 +4,10 @@
 // LAYERS ====================================================================
 enum Layers
   { BASE = 0
-  , QWERTY_2
   , SYMBOLS
   , MOVEMENT
   , ADJUST
+  , SYSTEM
   , SHIFT
   };
 
@@ -26,19 +26,6 @@ enum CustomKeyCodes {
 #define KC_LVAI  RGB_VAI
 #define KC_LVAD  RGB_VAD
 #define KC_LMOD  RGB_MOD
-// mouse wheel
-#define KC_WHU  KC_MS_WH_UP
-#define KC_WHD  KC_MS_WH_DOWN
-#define KC_WHR  KC_MS_WH_RIGHT
-#define KC_WHL  KC_MS_WH_LEFT
-// Mouse keys
-#define KC_MLCK KC_MS_BTN1
-#define KC_MRCK KC_MS_BTN2
-#define KC_MCCK KC_MS_BTN3
-/* buttons */
-#define KC_MB1 KC_MS_BTN1
-#define KC_MB2 KC_MS_BTN2
-#define KC_MB3 KC_MS_BTN3
 
 #define KC_GUIEI GUI_T(KC_LANG2)
 #define KC_ALTKN ALT_T(KC_LANG1)
@@ -48,6 +35,9 @@ enum CustomKeyCodes {
 // mod tabs
 #define KC_C_ESC LCTL_T(KC_ESC)
 #define KC_M_ENT LALT_T(KC_ENT)
+//#define KC_ HYPR_T
+#define KC_HPR_SYMB LT(SYMBOLS, KC_HYPR)
+#define KC_C_ENT LCTL_T(KC_ENT)
 #define KC_G_ENT RGUI_T(KC_ENT)
 #define KC_CTL_or_SLSH RCTL_T(KC_SLSH)
 #define KC_G_SPC RGUI_T(KC_SPC)
@@ -97,13 +87,16 @@ enum CustomKeyCodes {
 //#define KC_MO_SUPER MO(_SUPER)
 #define KC_BSP_MOV LT(MOVEMENT, KC_BSPC)
 
+
 #define KC__F1 KC_F1
 #define KC__F2 KC_F2
 #define KC__F3 KC_F3
 #define KC__F4 KC_F4
 #define KC__F5 KC_F5
-
-#define KC_TEST5 LM(QWERTY_2, MOD_LCTL)
+#define KC__F6 KC_F6
+#define KC__F7 KC_F7
+#define KC__F8 KC_F8
+#define KC__F9 KC_F9
 
 //#define KC_M_ENT_GUI ACTION_TAP_DANCE_DOUBLE(KC_ENT, KC_M_ENT)
 
@@ -125,34 +118,126 @@ enum CustomKeyCodes {
     BSP_MOV, SPC, C_ESC, /*|*/ M_ENT, RSFT, MO_SYMBS
 
 // SYMBOL LAYER ============================================================
+#define KC_S_or_ENT LSFT_T(KC_ENT)
+
 #define \
 LUAKH_SYMBOLS_1 EXLM, AT , TAB, DOLLAR , PIPE , /*|*/ DEL , 7, 8, 9, MINS
 #define \
 LUAKH_SYMBOLS_2 LCBR, RCBR, QUOT, GRAVE , BSLS, /*|*/ BSPC, 4, 5, 6, EQL
 #define \
-LUAKH_SYMBOLS_3 LBRC, RBRC, LPRN, RPRN  , AMPR, /*|*/ 0   , 1, 2, 3, ENT
+LUAKH_SYMBOLS_3 LBRC, RBRC, LPRN, RPRN  , AMPR, /*|*/ 0   , 1, 2, 3, S_or_ENT
 #define \
-LUAKH_SYMBOLS_4                NO, LSFT, C_ESC, /*|*/ M_ENT, SPC, MO_SYMBS
+LUAKH_SYMBOLS_4              LGUI, LSFT, C_ESC, /*|*/ M_ENT, SPC, MO_SYMBS
 
 // MOVEMENT LAYER ==========================================================
+  // mouse wheel
+#define KC_WHU  KC_MS_WH_UP
+#define KC_WHD  KC_MS_WH_DOWN
+#define KC_WHR  KC_MS_WH_RIGHT
+#define KC_WHL  KC_MS_WH_LEFT
+  // Mouse keys
+#define KC_MB1 KC_MS_BTN1
+#define KC_MB2 KC_MS_BTN2
+#define KC_MB3 KC_MS_BTN3
+// Tap stuff
+#define KC_C_MB1   RCTL_T(KC_MB1)
+#define KC_SC_MB1  MT(MOD_RCTL | MOD_RSFT, KC_MB1)
+#define KC_G_MB3   RGUI_T(KC_MB3)
+#define KC_G_PGDN  RGUI_T(KC_PGDN)
+#define KC_H_PGUP  HYPR_T(KC_PGUP)
+#define KC_H_MB2   HYPR_T(KC_MB2)
+#define KC_S_CLR   RSFT_T(KC_CLR)
+#define KC_DEL_SYS LT(SYSTEM, KC_DEL)
+
 #define LUAKH_MOVEMENT_1 \
-             HOME,  MB2, PGDN, PGUP, MB1 , /*|*/ DEL , MB1 , MB3 , MB2,  DEL
+             HOME,  MB2, PGDN, PGUP, MB1 , /*|*/ NO , MB1 , MB3 , MB2,  DEL_SYS
 #define LUAKH_MOVEMENT_2 \
               END, LEFT, DOWN,   UP, RGHT, /*|*/ MS_L, MS_D, MS_U, MS_R, INS
 #define LUAKH_MOVEMENT_3 \
-             _F1  , _F2  , _F3 , _F4, _F5, /*|*/ WHL , WHD , WHU ,  WHR, CLR
+             _F1  , _F2  , _F3 , _F4, _F5, /*|*/ WHL , WHD , WHU ,  WHR, S_CLR
 #define LUAKH_MOVEMENT_4 \
-                    MO_MVMNT, LSFT, C_ESC, /*|*/ M_ENT, RCTL, TG_ADJ
+                    MO_MVMNT, LSFT, TG_ADJ, /*|*/ SC_MB1, G_PGDN, H_PGUP
 
 // ADJUST LAYER ============================================================
 #define LUAKH_ADJUST_1 \
-              NO, LMOD, NO, NO, LTOG, /*|*/ NO , NO , NO , NO,  NO
+              NO, LMOD, NO, NO, LTOG, /*|*/ NO , _F7 , _F8 , _F9,  POWER
 #define LUAKH_ADJUST_2 \
-                NO, NO, NO,   NO, NO, /*|*/ NO, NO, NO, NO, NO
+                NO, NO, NO,   NO, NO, /*|*/ NO, _F4, _F5, _F6, EXECUTE
 #define LUAKH_ADJUST_3 \
-             NO  , NO  , NO , NO, NO, /*|*/ NO , NO , NO ,  NO, NO
+             NO  , NO  , NO , NO, NO, /*|*/ NO , _F1 , _F2 , _F3, NO
 #define LUAKH_ADJUST_4 \
-                          NO, NO, NO, /*|*/ NO, NO, TG_ADJ
+                          RST, NO, TG_ADJ, /*|*/ NO, NO, NO
+
+// SYSTEM LAYER ============================================================
+/*
+[ ] KC_PSCREEN
+[ ] KC_SCROLLLOCK
+[ ] KC_PAUSE
+[ ] KC_INSERT
+[ ] KC_HOME
+[ ] KC_PGUP
+[ ] KC_DELETE
+[ ] KC_END
+[ ] KC_PGDOWN
+[ ] KC_NUMLOCK
+[ ] KC_APPLICATION
+[ ] KC_POWER
+[ ] KC_EXECUTE
+[ ] KC_HELP
+[ ] KC_MENU
+[ ] KC_SELECT
+[ ] KC_STOP
+[ ] KC_AGAIN
+[ ] KC_UNDO
+[ ] KC_CUT
+[ ] KC_COPY
+[ ] KC_PASTE
+[ ] KC_FIND
+[ ] KC__MUTE
+[ ] KC__VOLUP
+[ ] KC__VOLDOWN
+[ ] KC_SYSREQ
+[ ] KC_CANCEL
+[ ] KC_CLEAR
+[ ] KC_PRIOR
+[X] KC_SYSTEM_SLEEP
+[ ] KC_AUDIO_MUTE
+[ ] KC_AUDIO_VOL_UP
+[ ] KC_AUDIO_VOL_DOWN
+[X] KC_MEDIA_NEXT_TRACK
+[X] KC_MEDIA_PREV_TRACK
+[ ] KC_MEDIA_STOP
+[X] KC_MEDIA_PLAY_PAUSE
+[ ] KC_MEDIA_SELECT
+[ ] KC_MEDIA_EJECT
+[ ] KC_MAIL
+[ ] KC_CALCULATOR
+[ ] KC_MY_COMPUTER
+[ ] KC_WWW_SEARCH
+[ ] KC_WWW_HOME
+[ ] KC_WWW_BACK
+[ ] KC_WWW_FORWARD
+[ ] KC_WWW_STOP
+[ ] KC_WWW_REFRESH
+[ ] KC_WWW_FAVORITES
+[ ] KC_MEDIA_FAST_FORWARD
+[ ] KC_MEDIA_REWIND
+[ ] KC_BRIGHTNESS_UP
+[ ] KC_BRIGHTNESS_DOWN
+*/
+#define KC_TG_PLAY KC_MEDIA_PLAY_PAUSE
+#define KC_MU_N KC_MEDIA_NEXT_TRACK
+#define KC_MU_P KC_MEDIA_PREV_TRACK
+#define KC_SLEEP KC_SYSTEM_SLEEP
+
+#define LUAKH_SYSTEM_1 \
+              NO, NO, EXECUTE, NO, LTOG, /*|*/ A , NO , NO , NO,  NO
+#define LUAKH_SYSTEM_2 \
+                NO, NO, NO,   NO, NO, /*|*/  NO , NO, NO, NO, NO
+#define LUAKH_SYSTEM_3 \
+             NO  , NO  , NO , NO, NO, /*|*/  NO , NO , NO , NO, NO
+#define LUAKH_SYSTEM_4 \
+                          NO, NO, NO, /*|*/ MU_P, TG_PLAY, MU_N
 
 // SHIFT LAYER ================================================================
 
