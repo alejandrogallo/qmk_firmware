@@ -48,5 +48,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     ENT,         ENT,
                     ENT,         ENT),
 
+[MODIFIER] = LUAKH_kc(MODIFIER,
+                    ENT,         ENT,
+                    ENT,         ENT,
+                    ENT,         ENT),
+
 
 };

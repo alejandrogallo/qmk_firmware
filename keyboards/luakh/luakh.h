@@ -8,6 +8,7 @@ enum Layers
   , MOVEMENT
   , ADJUST
   , SYSTEM
+  , MODIFIER
   , SHIFT
   };
 
@@ -17,19 +18,7 @@ enum CustomKeyCodes {
 };
 
 // KEYS ====================================================================
-#define KC_RST   RESET
-#define KC_LTOG  RGB_TOG
-#define KC_LHUI  RGB_HUI
-#define KC_LHUD  RGB_HUD
-#define KC_LSAI  RGB_SAI
-#define KC_LSAD  RGB_SAD
-#define KC_LVAI  RGB_VAI
-#define KC_LVAD  RGB_VAD
-#define KC_LMOD  RGB_MOD
 
-#define KC_GUIEI GUI_T(KC_LANG2)
-#define KC_ALTKN ALT_T(KC_LANG1)
-#define KC_TO_BASE TO(BASE)
 #define KC_TG_ADJ TG(ADJUST)
 
 // mod tabs
@@ -76,16 +65,15 @@ enum CustomKeyCodes {
 #define KC_MO_MVMNT MO(MOVEMENT)
 #define KC_MO_SHIFT MO(SHIFT)
 
-#define TO_BASE KC_TO_BASE
-#define KC_RST RESET
-#define TO_MOVEMENT KC_TO_MOVEMENT
-#define __ KC_NO
+#define KC____ KC_TRNS
 
 #define KC_RGBMF RGB_MODE_FORWARD
 
 #define KC_MO_HYPR MO(_HPR)
 //#define KC_MO_SUPER MO(_SUPER)
 #define KC_BSP_MOV LT(MOVEMENT, KC_BSPC)
+#define KC_BSP_MOD LT(MODIFIER, KC_BSPC)
+#define KC_SPC_MOD LT(MODIFIER, KC_SPC)
 
 
 #define KC__F1 KC_F1
@@ -101,21 +89,18 @@ enum CustomKeyCodes {
 //#define KC_M_ENT_GUI ACTION_TAP_DANCE_DOUBLE(KC_ENT, KC_M_ENT)
 
 // QWERTY LAYER ============================================================
+#define KC_Z_or_MOD LT(MODIFIER, KC_Z)
+#define KC_SLSH_or_MOD LT(MODIFIER, KC_SLSH)
+
 #define LUAKH_QWERTY_1 \
                                  Q, W, E, R, T, /*|*/ Y, U,    I,   O,    P
 #define LUAKH_QWERTY_2 \
                                  A, S, D, F, G, /*|*/ H, J, K, L, SCLN
 #define LUAKH_QWERTY_3 \
-                                 Z_GUI, X, C, V, B, /*|*/ N, M, COMM, DOT, SLSH_GUI
+                          Z_or_MOD, X, C, V, B, /*|*/ N, M, COMM, DOT, SLSH_or_MOD
 #define LUAKH_QWERTY_4 \
                           BSP_MOV, LSFT, C_ESC, /*|*/ M_ENT, SPC, MO_SYMBS
 
-// QWERTY2 LAYER ============================================================
-#define LUAKH_QWERTY_2_1 LUAKH_QWERTY_1
-#define LUAKH_QWERTY_2_2 LUAKH_QWERTY_2
-#define LUAKH_QWERTY_2_3 LUAKH_QWERTY_3
-#define LUAKH_QWERTY_2_4 \
-    BSP_MOV, SPC, C_ESC, /*|*/ M_ENT, RSFT, MO_SYMBS
 
 // SYMBOL LAYER ============================================================
 #define KC_S_or_ENT LSFT_T(KC_ENT)
@@ -159,6 +144,16 @@ LUAKH_SYMBOLS_4              LGUI, LSFT, C_ESC, /*|*/ M_ENT, SPC, MO_SYMBS
                     MO_MVMNT, LSFT, TG_ADJ, /*|*/ SC_MB1, G_PGDN, H_PGUP
 
 // ADJUST LAYER ============================================================
+#define KC_RST   RESET
+#define KC_LTOG  RGB_TOG
+#define KC_LHUI  RGB_HUI
+#define KC_LHUD  RGB_HUD
+#define KC_LSAI  RGB_SAI
+#define KC_LSAD  RGB_SAD
+#define KC_LVAI  RGB_VAI
+#define KC_LVAD  RGB_VAD
+#define KC_LMOD  RGB_MOD
+
 #define LUAKH_ADJUST_1 \
               NO, LMOD, NO, NO, LTOG, /*|*/ NO , _F7 , _F8 , _F9,  POWER
 #define LUAKH_ADJUST_2 \
@@ -167,6 +162,30 @@ LUAKH_SYMBOLS_4              LGUI, LSFT, C_ESC, /*|*/ M_ENT, SPC, MO_SYMBS
              NO  , NO  , NO , NO, NO, /*|*/ NO , _F1 , _F2 , _F3, NO
 #define LUAKH_ADJUST_4 \
                           RST, NO, TG_ADJ, /*|*/ NO, NO, NO
+
+// MODIFIER LAYER ==========================================================
+  // shifted modifiers
+#define KC_LSALT   LSFT(KC_LALT)
+#define KC_LSCTL   LSFT(KC_LCTL)
+#define KC_LSGUI   LSFT(KC_LGUI)
+#define KC_RSALT   RSFT(KC_LALT)
+#define KC_RSCTL   RSFT(KC_RCTL)
+#define KC_RSGUI   RSFT(KC_RGUI)
+#define KC_GALT   RSFT(KC_RGUI)
+
+#define KC_LGA LGUI(KC_LALT)
+#define KC_LSGA LSFT(LGUI(KC_LALT))
+
+
+#define LUAKH_MODIFIER_1 \
+                    ESC, ___, ___, ___, TAB, /*|*/ DEL, ___, ___, ___, BSPC
+#define LUAKH_MODIFIER_2 \
+                 TAB, LALT, LGUI, LCTL, ESC, /*|*/ BSPC, RCTL, RGUI, LALT, TAB
+#define LUAKH_MODIFIER_3 \
+              ___, LSALT, LSGUI, LSCTL, ___, /*|*/ TRNS, RSCTL, RSGUI, RSALT, ENT
+#define LUAKH_MODIFIER_4 \
+                              ___, ___, ___, /*|*/ LGUI, LGA, LGUI
+
 
 // SYSTEM LAYER ============================================================
 /*
