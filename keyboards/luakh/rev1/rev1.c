@@ -5,7 +5,8 @@
 #define LUAKH_STATE(left, right) (0b ## left ## right) & (DAUMEN_STATE)
 
 qk_tap_dance_action_t tap_dance_actions[] = {
-  [TD_GUI_SGUI] = ACTION_TAP_DANCE_DOUBLE(KC_RGUI, KC_RSFT)
+  [TD_GUI_SGUI] = ACTION_TAP_DANCE_DOUBLE(KC_RGUI, KC_RSFT),
+  [TD_ENT_TAB]  = ACTION_TAP_DANCE_DOUBLE(KC_ENT, KC_TAB),
 };
 
 static uint8_t DAUMEN_STATE = 0x00;

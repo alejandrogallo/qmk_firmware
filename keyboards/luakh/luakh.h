@@ -21,10 +21,12 @@ enum Layers
 #define KC_DL0 KC_FN29
 
 enum {
-  TD_GUI_SGUI = 0
+  TD_GUI_SGUI = 0,
+  TD_ENT_TAB
 };
-
+// define the actual keys in rev1/rev1.c
 #define KC_D_GUI TD(TD_GUI_SGUI)
+#define KC_D_ENT TD(TD_ENT_TAB)
 
 #define LUAKH_MACRO_KEY KC_FN24
 #define LUAKH_MACRO_MAX_SIZE 5
@@ -117,13 +119,13 @@ enum {
 #define LUAKH_QWERTY_4 \
                           TAB_MOV, LSFT, C_ESC, /*|*/ M_ENT, SPC_SYM, D_GUI
 
-// LAYER: SYMBOL =========================================================={{{1
+// LAYER: SYMBOLS ========================================================={{{1
 #define KC_S_or_SLSH LSFT_T(KC_SLSH)
 #define KC_UNSC LSFT(KC_MINS)
 #define KC_UMLAUT RALT(KC_U)
 
 #define \
-LUAKH_SYMBOLS_1   EXLM, AT, HASH, DOLLAR, PIPE, /*|*/  ENT, 7, 8, 9, MINS
+LUAKH_SYMBOLS_1   EXLM, AT, HASH, DOLLAR, PIPE, /*|*/D_ENT, 7, 8, 9, MINS
 #define \
 LUAKH_SYMBOLS_2  LCBR, RCBR, QUOT, GRAVE, BSLS, /*|*/ BSPC, 4, 5, 6, EQL
 #define \
