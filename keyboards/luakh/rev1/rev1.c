@@ -167,6 +167,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case LGUI_T(KC_Z):
     case RGUI_T(KC_SLSH):
       return TAPPING_TERM + 60;
+    case LT(SYMBOLS, KC_SPC):
+      return TAPPING_TERM + 60;
     default:
       return TAPPING_TERM;
   }
