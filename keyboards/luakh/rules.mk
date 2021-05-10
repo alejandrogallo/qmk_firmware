@@ -19,4 +19,5 @@ HD44780_ENABLE = no     # Enable support for HD44780 based LCDs (+400)
 
 DEFAULT_FOLDER = luakh/rev1
 
-#SPLIT_KEYBOARD = yes
+TAP_DANCE_ENABLE = yes
+POINTING_DEVICE_ENABLE = no

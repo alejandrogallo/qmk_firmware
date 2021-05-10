@@ -20,6 +20,12 @@ enum Layers
 #define KC_DL1 KC_FN28
 #define KC_DL0 KC_FN29
 
+enum {
+  TD_GUI_SGUI = 0
+};
+
+#define KC_D_GUI TD(TD_GUI_SGUI)
+
 #define LUAKH_MACRO_KEY KC_FN24
 #define LUAKH_MACRO_MAX_SIZE 5
 
@@ -60,7 +66,6 @@ enum Layers
 
 #define KC_G_GUI LGUI_T(KC_G)
 #define KC_K_GUI LGUI_T(KC_K)
-#define KC_D_GUI LGUI_T(KC_D)
 #define KC_F_CTL LCTL_T(KC_F)
 #define KC_D_ALT LALT_T(KC_D)
 #define KC_S_SFT RSFT_T(KC_S)
@@ -110,7 +115,7 @@ enum Layers
 #define LUAKH_QWERTY_3 \
                           Z_or_MOD, X, C, V, B, /*|*/ N, M, COMM, DOT, SLSH
 #define LUAKH_QWERTY_4 \
-                          TAB_MOV, LSFT, C_ESC, /*|*/ M_ENT, SPC_SYM, RGUI
+                          TAB_MOV, LSFT, C_ESC, /*|*/ M_ENT, SPC_SYM, D_GUI
 
 // LAYER: SYMBOL =========================================================={{{1
 #define KC_S_or_SLSH LSFT_T(KC_SLSH)

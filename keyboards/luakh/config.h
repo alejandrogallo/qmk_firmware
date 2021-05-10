@@ -14,3 +14,7 @@
 #define MOUSEKEY_TIME_TO_MAX     9
 #define MOUSEKEY_WHEEL_MAX_SPEED  0
 
+// enable tap dance
+#ifndef TAP_DANCE_ENABLE
+#define TAP_DANCE_ENABLE
+#endif

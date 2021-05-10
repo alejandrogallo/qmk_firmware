@@ -4,6 +4,10 @@
 
 #define LUAKH_STATE(left, right) (0b ## left ## right) & (DAUMEN_STATE)
 
+qk_tap_dance_action_t tap_dance_actions[] = {
+  [TD_GUI_SGUI] = ACTION_TAP_DANCE_DOUBLE(KC_RGUI, KC_RSFT)
+};
+
 static uint8_t DAUMEN_STATE = 0x00;
 enum DaumenMask
   { DL0 = 0b100000
