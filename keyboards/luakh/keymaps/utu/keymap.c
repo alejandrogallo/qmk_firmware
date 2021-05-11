@@ -16,5 +16,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                NO,          NO,
                       RST, NO, NO,          NO, NO, NO),
 
+  [ADJUST] = LUAKH_kc(ADJUST,
+                               NO,          NO,
+                      RST, NO, NO,          NO, NO, NO),
+
+  [SYSTEM] = LUAKH_kc(SYSTEM,
+                               NO,          NO,
+                      RST, NO, NO,          NO, NO, NO),
+
+  [MODIFIER] = LUAKH_kc(MODIFIER,
+                                 NO,          NO,
+                        RST, NO, NO,          NO, NO, NO),
+
 };
 

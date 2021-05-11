@@ -169,29 +169,23 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case RGUI_T(KC_SLSH):
       return TAPPING_TERM + 60;
     case LT(SYMBOLS, KC_SPC):
-      return TAPPING_TERM + 00;
+      return TAPPING_TERM + 20 ;
     default:
       return TAPPING_TERM;
   }
 }
 
 // COMBOS ================================================================={{{1
-enum {
-      ENTER_COMBO = 0,
-      ESC_COMBO,
-      TAB_COMBO,
-      ALT_COMBO,
-      CTL_COMBO
-};
-const uint16_t PROGMEM enter_combo[]  = {KC_COMM, KC_M, COMBO_END};
+const uint16_t PROGMEM enter_combo[]  = {KC_K, KC_L, COMBO_END};
 const uint16_t PROGMEM esc_combo[]  = {KC_K, KC_J, COMBO_END};
-const uint16_t PROGMEM tab_combo[]  = {KC_D, KC_F, COMBO_END};
-const uint16_t PROGMEM alt_combo[]  = {KC_A, KC_B, COMBO_END};
+const uint16_t PROGMEM tab_combo[]  = {KC_M, KC_COMM, COMBO_END};
+const uint16_t PROGMEM bspc_combo[]  = {KC_H, KC_J, COMBO_END};
 const uint16_t PROGMEM ctl_combo[]  = {KC_FN29, KC_FN28, COMBO_END};
 combo_t key_combos[COMBO_COUNT]
   = { COMBO(enter_combo, KC_ENT)
     , COMBO(esc_combo, KC_ESC)
     , COMBO(tab_combo, KC_TAB)
+    , COMBO(bspc_combo, KC_BSPC)
     };
 
 /*
