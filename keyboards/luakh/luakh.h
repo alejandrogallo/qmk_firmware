@@ -22,14 +22,17 @@ enum Layers
 
 enum {
   TD_GUI_SGUI = 0,
-  TD_ENT_TAB
+  TD_ENT_TAB,
+  TD_SPC_ALT
 };
 // define the actual keys in rev1/rev1.c
 #define KC_D_GUI TD(TD_GUI_SGUI)
 #define KC_D_ENT TD(TD_ENT_TAB)
+#define KC_A_SPC TD(TD_SPC_ALT)
 
 #define LUAKH_MACRO_KEY KC_FN24
 #define LUAKH_MACRO_MAX_SIZE 5
+
 
 // KEYS ==================================================================={{{1
 
@@ -103,12 +106,9 @@ enum {
 #define KC_Z_or_MOD LT(MODIFIER, KC_Z)
 #define KC_SLSH_or_MOD LT(MODIFIER, KC_SLSH)
 #define KC_GUI_BSP RGUI_T(KC_BSPC)
-#define KC_LSFT_BSP LSFT_T(KC_BSPC)
+#define KC_LSFT_ENT LSFT_T(KC_ENT)
 #define KC_TAB_MOV LT(MOVEMENT, KC_TAB)
 #define KC_SPC_SYM LT(SYMBOLS, KC_SPC)
-
-// TODO: Maybe change the space in the keymap since it could be difficult
-// to generalize, it might not work well for programming.
 
 #define LUAKH_QWERTY_1 \
                                  Q, W, E, R, T, /*|*/ Y, U, I, O, P
@@ -117,7 +117,7 @@ enum {
 #define LUAKH_QWERTY_3 \
                           Z_or_MOD, X, C, V, B, /*|*/ N, M, COMM, DOT, SLSH
 #define LUAKH_QWERTY_4 \
-                          TAB_MOV, LSFT, C_ESC, /*|*/ M_ENT, SPC_SYM, D_GUI
+                          TAB_MOV, LSFT_ENT, C_ESC, /*|*/ M_ENT, SPC_SYM, D_GUI
 
 // LAYER: SYMBOLS ========================================================={{{1
 #define KC_S_or_SLSH LSFT_T(KC_SLSH)

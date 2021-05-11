@@ -11,4 +11,6 @@
 #define TAPPING_FORCE_HOLD
 
 #define TAPPING_TERM_PER_KEY
+#define COMBO_TERM 20 // window in milliseconds to trigger combo
+#define COMBO_COUNT 5 // Specify the number of combos used. BE SURE TO INCREMENT AS NEEDED
 
