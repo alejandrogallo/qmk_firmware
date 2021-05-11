@@ -205,7 +205,7 @@ LUAKH_SYMBOLS_4             MO_MDFIR, ___, ___, /*|*/ ___, ___, ___
 #define LUAKH_MODIFIER_3 \
                 ___, LSALT, LSGUI, LSCTL, ___, /*|*/ ___, RSCTL, RSGUI, RSALT, CAPS
 #define LUAKH_MODIFIER_4 \
-                                ___, ___, ___, /*|*/ RGUI, SPC, ___
+                              RSGUI, SPC, ENT, /*|*/ RCTL, RGUI, LALT
 
 // LAYER: SYSTEM =========================================================={{{1
 /*
