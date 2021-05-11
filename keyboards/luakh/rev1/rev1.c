@@ -185,7 +185,7 @@ enum {
 };
 const uint16_t PROGMEM enter_combo[]  = {KC_COMM, KC_M, COMBO_END};
 const uint16_t PROGMEM esc_combo[]  = {KC_K, KC_J, COMBO_END};
-const uint16_t PROGMEM tab_combo[]  = {KC_DOT, KC_COMM, COMBO_END};
+const uint16_t PROGMEM tab_combo[]  = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM alt_combo[]  = {KC_A, KC_B, COMBO_END};
 const uint16_t PROGMEM ctl_combo[]  = {KC_FN29, KC_FN28, COMBO_END};
 combo_t key_combos[COMBO_COUNT]
