@@ -28,3 +28,7 @@
 
 #undef DESCRIPTION
 #define DESCRIPTION     what else do you need
+
+/* Encoder pins */
+#define ENCODERS_PAD_A { B3 }
+#define ENCODERS_PAD_B { B2 }
